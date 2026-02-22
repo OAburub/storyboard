@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%" direction="rtl">
+  <defs>
+    <!-- Web Fonts -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&amp;display=swap');
+      text {
+        font-family: 'Tajawal', sans-serif;
+      }
+    </style>
+
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F8F9FA"/>
+      <stop offset="100%" stop-color="#EEF2F7"/>
+    </linearGradient>
+
+    <!-- Shadows -->
+    <filter id="shadowNormal" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#1E293B" flood-opacity="0.06"/>
+    </filter>
+    
+    <filter id="shadowHighlight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#009688" flood-opacity="0.12"/>
+    </filter>
+
+    <!-- Card Clip Paths for Rounded Headers -->
+    <clipPath id="clipTrad">
+      <rect x="0" y="0" width="400" height="460" rx="16"/>
+    </clipPath>
+    
+    <clipPath id="clipDigi">
+      <rect x="0" y="0" width="400" height="500" rx="16"/>
+    </clipPath>
+
+    <!-- Reusable Bullet Icons -->
+    <g id="bulletTrad">
+      <circle cx="0" cy="0" r="14" fill="#4A90D9" fill-opacity="0.15"/>
+      <circle cx="0" cy="0" r="5" fill="#2D588C"/>
+    </g>
+
+    <g id="bulletDigi">
+      <circle cx="0" cy="0" r="16" fill="#009688" fill-opacity="0.15"/>
+      <circle cx="0" cy="0" r="6" fill="#009688"/>
+    </g>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="url(#bgGrad)"/>
+
+  <!-- Decorative Background Elements -->
+  <g id="decorative-bg" pointer-events="none">
+    <circle cx="1150" cy="100" r="150" fill="#2D588C" opacity="0.03"/>
+    <circle cx="100" cy="650" r="250" fill="#009688" opacity="0.03"/>
+    <rect x="1100" y="550" width="80" height="80" rx="20" fill="#F5A623" opacity="0.05" transform="rotate(45 1140 590)"/>
+    <rect x="150" y="80" width="60" height="60" rx="15" fill="#4A90D9" opacity="0.05" transform="rotate(15 180 110)"/>
+  </g>
+
+  <!-- Title Area -->
+  <g id="title-group">
+    <text x="640" y="85" font-size="46" font-weight="800" fill="#2D588C" text-anchor="middle" direction="rtl">مقارنة بين التعلم التقليدي والرقمي</text>
+    <rect x="560" y="115" width="160" height="6" rx="3" fill="#F5A623"/>
+  </g>
+
+  <!-- Column 1: Traditional Learning (Right side, Standard) -->
+  <g id="card-traditional" transform="translate(690, 180)">
+    <!-- Card Base -->
+    <rect width="400" height="460" rx="16" fill="#ffffff" filter="url(#shadowNormal)"/>
+    
+    <!-- Header -->
+    <g clip-path="url(#clipTrad)">
+      <rect width="400" height="100" fill="#2D588C"/>
+    </g>
+    <text x="200" y="55" font-size="32" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central" direction="rtl">التعلم التقليدي</text>
+
+    <!-- List Items -->
+    <!-- Item 1 -->
+    <use href="#bulletTrad" x="360" y="172"/>
+    <text x="335" y="172" font-size="24" font-weight="600" fill="#334155" text-anchor="end" dominant-baseline="central" direction="rtl">حضور فيزيائي</text>
+    <line x1="60" y1="208" x2="340" y2="208" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+    <!-- Item 2 -->
+    <use href="#bulletTrad" x="360" y="244"/>
+    <text x="335" y="244" font-size="24" font-weight="600" fill="#334155" text-anchor="end" dominant-baseline="central" direction="rtl">تفاعل مباشر</text>
+    <line x1="60" y1="280" x2="340" y2="280" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+    <!-- Item 3 -->
+    <use href="#bulletTrad" x="360" y="316"/>
+    <text x="335" y="316" font-size="24" font-weight="600" fill="#334155" text-anchor="end" dominant-baseline="central" direction="rtl">جدول ثابت</text>
+    <line x1="60" y1="352" x2="340" y2="352" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+    <!-- Item 4 -->
+    <use href="#bulletTrad" x="360" y="388"/>
+    <text x="335" y="388" font-size="24" font-weight="600" fill="#334155" text-anchor="end" dominant-baseline="central" direction="rtl">تكلفة أعلى</text>
+  </g>
+
+  <!-- Column 2: Digital Learning (Left side, Highlighted) -->
+  <g id="card-digital" transform="translate(190, 160)">
+    <!-- Card Base -->
+    <rect width="400" height="500" rx="16" fill="#ffffff" filter="url(#shadowHighlight)"/>
+    
+    <!-- Header -->
+    <g clip-path="url(#clipDigi)">
+      <rect width="400" height="110" fill="#009688"/>
+      <!-- Accent Top Border -->
+      <rect width="400" height="6" fill="#F5A623"/>
+    </g>
+    <text x="200" y="60" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central" direction="rtl">التعلم الرقمي</text>
+
+    <!-- List Items -->
+    <!-- Item 1 -->
+    <use href="#bulletDigi" x="360" y="188"/>
+    <text x="335" y="188" font-size="26" font-weight="700" fill="#0F172A" text-anchor="end" dominant-baseline="central" direction="rtl">مرونة في الوقت</text>
+    <line x1="50" y1="227" x2="350" y2="227" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+    <!-- Item 2 -->
+    <use href="#bulletDigi" x="360" y="266"/>
+    <text x="335" y="266" font-size="26" font-weight="700" fill="#0F172A" text-anchor="end" dominant-baseline="central" direction="rtl">محتوى تفاعلي</text>
+    <line x1="50" y1="305" x2="350" y2="305" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+    <!-- Item 3 -->
+    <use href="#bulletDigi" x="360" y="344"/>
+    <text x="335" y="344" font-size="26" font-weight="700" fill="#0F172A" text-anchor="end" dominant-baseline="central" direction="rtl">تكلفة أقل</text>
+    <line x1="50" y1="383" x2="350" y2="383" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+    <!-- Item 4 -->
+    <use href="#bulletDigi" x="360" y="422"/>
+    <text x="335" y="422" font-size="26" font-weight="700" fill="#0F172A" text-anchor="end" dominant-baseline="central" direction="rtl">وصول أوسع</text>
+  </g>
+
+  <!-- VS Badge / Connection Graphic -->
+  <g id="vs-badge" transform="translate(640, 410)">
+    <circle r="36" fill="#ffffff" filter="url(#shadowNormal)"/>
+    <circle r="28" fill="#F8FAFC"/>
+    <!-- Exchange Arrows Icon -->
+    <!-- Right pointing arrow (Traditional) -->
+    <path d="M -12 -8 L 14 -8 M 6 -15 L 14 -8 L 6 -1" stroke="#2D588C" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Left pointing arrow (Digital) -->
+    <path d="M 12 8 L -14 8 M -6 1 L -14 8 L -6 15" stroke="#009688" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+</svg>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+    <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#F8F9FA"/>
+            <stop offset="100%" stop-color="#EEF2F7"/>
+        </linearGradient>
+
+        <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000000" flood-opacity="0.06"/>
+        </filter>
+
+        <filter id="pillShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#2D588C" flood-opacity="0.12"/>
+        </filter>
+
+        <marker id="arrowHead" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+            <path d="M 1,2 L 12,7 L 1,12 Z" fill="#90A4AE" />
+        </marker>
+
+        <g id="cardDecor">
+            <circle cx="210" cy="30" r="70" fill="#ffffff" opacity="0.04"/>
+            <circle cx="190" cy="110" r="40" fill="#ffffff" opacity="0.03"/>
+        </g>
+    </defs>
+
+    <rect width="1280" height="720" fill="url(#bgGrad)"/>
+    <circle cx="150" cy="150" r="400" fill="#2D588C" opacity="0.015"/>
+    <circle cx="1130" cy="600" r="300" fill="#F5A623" opacity="0.015"/>
+
+    <text x="640" y="80" font-family="Tajawal, sans-serif" font-size="44" font-weight="800" fill="#2D588C" text-anchor="middle" direction="rtl">دورة التعلم المستمر</text>
+
+    <g transform="translate(520, 310)">
+        <rect x="0" y="0" width="240" height="100" rx="50" fill="#ffffff" filter="url(#pillShadow)"/>
+        <rect x="8" y="8" width="224" height="84" rx="42" fill="none" stroke="#2D588C" stroke-width="2" stroke-dasharray="6 4" opacity="0.4"/>
+        <text x="120" y="52" font-family="Tajawal, sans-serif" font-size="26" font-weight="700" fill="#2D588C" text-anchor="middle" dominant-baseline="middle" direction="rtl">التعلم المستمر</text>
+    </g>
+
+    <g fill="none" stroke="#90A4AE" stroke-width="4" stroke-linecap="butt" marker-end="url(#arrowHead)">
+        <path d="M 810 200 Q 640 80 475 200" />
+        <path d="M 340 285 Q 220 360 340 435" />
+        <path d="M 475 520 Q 640 640 810 520" />
+        <path d="M 940 435 Q 1060 360 940 285" />
+    </g>
+
+    <g transform="translate(820, 130)">
+        <rect width="240" height="140" rx="16" fill="#2D588C" filter="url(#cardShadow)"/>
+        <use href="#cardDecor"/>
+        <rect x="197" y="15" width="28" height="28" rx="6" fill="#ffffff" fill-opacity="0.2"/>
+        <text x="211" y="35" font-family="Tajawal, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">١</text>
+        <circle cx="120" cy="45" r="24" fill="#ffffff" fill-opacity="0.1"/>
+        <path d="M120 30 A15 15 0 1 1 119.9 30 M120 36 A9 9 0 1 1 119.9 36" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <circle cx="120" cy="45" r="2.5" fill="#ffffff"/>
+        <path d="M120 22 L120 28 M120 62 L120 68 M97 45 L103 45 M137 45 L143 45" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+        <text x="120" y="96" font-family="Tajawal, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle" direction="rtl">التخطيط</text>
+        <text x="120" y="120" font-family="Tajawal, sans-serif" font-size="15" fill="#ffffff" opacity="0.85" text-anchor="middle" direction="rtl">تحديد الأهداف</text>
+    </g>
+
+    <g transform="translate(220, 130)">
+        <rect width="240" height="140" rx="16" fill="#F5A623" filter="url(#cardShadow)"/>
+        <use href="#cardDecor"/>
+        <rect x="197" y="15" width="28" height="28" rx="6" fill="#ffffff" fill-opacity="0.2"/>
+        <text x="211" y="35" font-family="Tajawal, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">٢</text>
+        <circle cx="120" cy="45" r="24" fill="#ffffff" fill-opacity="0.1"/>
+        <rect x="110" y="32" width="20" height="24" rx="3" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <line x1="115" y1="39" x2="125" y2="39" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+        <line x1="115" y1="45" x2="125" y2="45" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+        <path d="M114 53 L118 57 L126 49" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="120" y="96" font-family="Tajawal, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle" direction="rtl">التنفيذ</text>
+        <text x="120" y="120" font-family="Tajawal, sans-serif" font-size="15" fill="#ffffff" opacity="0.85" text-anchor="middle" direction="rtl">تطبيق المعرفة</text>
+    </g>
+
+    <g transform="translate(220, 450)">
+        <rect width="240" height="140" rx="16" fill="#009688" filter="url(#cardShadow)"/>
+        <use href="#cardDecor"/>
+        <rect x="197" y="15" width="28" height="28" rx="6" fill="#ffffff" fill-opacity="0.2"/>
+        <text x="211" y="35" font-family="Tajawal, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">٣</text>
+        <circle cx="120" cy="45" r="24" fill="#ffffff" fill-opacity="0.1"/>
+        <circle cx="116" cy="41" r="9" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <line x1="123" y1="48" x2="130" y2="55" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+        <path d="M112 41 L116 45 L122 38" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="120" y="96" font-family="Tajawal, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle" direction="rtl">المراجعة</text>
+        <text x="120" y="120" font-family="Tajawal, sans-serif" font-size="15" fill="#ffffff" opacity="0.85" text-anchor="middle" direction="rtl">تقييم النتائج</text>
+    </g>
+
+    <g transform="translate(820, 450)">
+        <rect width="240" height="140" rx="16" fill="#FF9800" filter="url(#cardShadow)"/>
+        <use href="#cardDecor"/>
+        <rect x="197" y="15" width="28" height="28" rx="6" fill="#ffffff" fill-opacity="0.2"/>
+        <text x="211" y="35" font-family="Tajawal, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">٤</text>
+        <circle cx="120" cy="45" r="24" fill="#ffffff" fill-opacity="0.1"/>
+        <path d="M106 53 L114 45 L120 51 L132 38" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M124 38 L132 38 L132 46" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="120" y="96" font-family="Tajawal, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle" direction="rtl">التحسين</text>
+        <text x="120" y="120" font-family="Tajawal, sans-serif" font-size="15" fill="#ffffff" opacity="0.85" text-anchor="middle" direction="rtl">تعديل الأساليب</text>
+    </g>
+</svg>

@@ -1,0 +1,218 @@
+<svg viewBox="0 0 1280 720" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Background Gradient -->
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#F8F9FA"/>
+            <stop offset="100%" stop-color="#EEF2F7"/>
+        </linearGradient>
+
+        <!-- Card Gradient -->
+        <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2D588C"/>
+            <stop offset="100%" stop-color="#4A90D9"/>
+        </linearGradient>
+
+        <!-- Shadows -->
+        <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+            <feOffset dx="0" dy="8"/>
+            <feComponentTransfer><feFuncA type="linear" slope="0.12"/></feComponentTransfer>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <filter id="lightShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+            <feOffset dx="0" dy="4"/>
+            <feComponentTransfer><feFuncA type="linear" slope="0.1"/></feComponentTransfer>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <!-- Arrow Head -->
+        <marker id="arrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#4A90D9"/>
+        </marker>
+
+        <!-- Clip Paths for Premium Card Accents -->
+        <clipPath id="clip1"><rect x="985" y="280" width="210" height="260" rx="15"/></clipPath>
+        <clipPath id="clip2"><rect x="685" y="280" width="210" height="260" rx="15"/></clipPath>
+        <clipPath id="clip3"><rect x="385" y="280" width="210" height="260" rx="15"/></clipPath>
+        <clipPath id="clip4"><rect x="85" y="280" width="210" height="260" rx="15"/></clipPath>
+
+        <!-- Reusable Dotted Pattern -->
+        <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="#ffffff" opacity="0.05"/>
+        </pattern>
+    </defs>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&amp;display=swap');
+        
+        text {
+            font-family: 'Tajawal', sans-serif;
+            direction: rtl;
+        }
+
+        .fade-in {
+            animation: fadeSlideIn 0.8s ease-out both;
+        }
+
+        .pulse-num {
+            animation: countPulse 0.8s ease-out both;
+        }
+
+        .draw-arrow {
+            stroke-dasharray: 120;
+            stroke-dashoffset: 120;
+            animation: drawLine 0.6s ease-out both;
+        }
+
+        /* Sequential Animation Delays */
+        .delay-title { animation-delay: 0s; }
+        .delay-c1    { animation-delay: 0.2s; }
+        .delay-a1    { animation-delay: 0.4s; }
+        .delay-c2    { animation-delay: 0.6s; }
+        .delay-a2    { animation-delay: 0.8s; }
+        .delay-c3    { animation-delay: 1.0s; }
+        .delay-a3    { animation-delay: 1.2s; }
+        .delay-c4    { animation-delay: 1.4s; }
+
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes countPulse {
+            0% { opacity: 0; transform: scale(0.8); }
+            60% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes drawLine {
+            from { stroke-dashoffset: 120; opacity: 0; }
+            to { stroke-dashoffset: 0; opacity: 1; }
+        }
+    </style>
+
+    <!-- Background -->
+    <rect width="1280" height="720" fill="url(#bgGrad)"/>
+
+    <!-- Title Section -->
+    <g class="fade-in delay-title">
+        <rect x="470" y="55" width="340" height="60" rx="30" fill="#ffffff" filter="url(#dropShadow)"/>
+        <text x="640" y="94" font-size="28" font-weight="800" fill="#2D588C" text-anchor="middle">مراحل التصميم التعليمي</text>
+    </g>
+
+    <!-- CONNECTING ARROWS -->
+    <!-- Arrow 1 (C1 -> C2) -->
+    <path class="draw-arrow delay-a1" d="M 975 410 Q 935 370 895 410" fill="none" stroke="#4A90D9" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowHead)"/>
+    
+    <!-- Arrow 2 (C2 -> C3) -->
+    <path class="draw-arrow delay-a2" d="M 675 410 Q 635 370 595 410" fill="none" stroke="#4A90D9" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowHead)"/>
+    
+    <!-- Arrow 3 (C3 -> C4) -->
+    <path class="draw-arrow delay-a3" d="M 375 410 Q 335 370 295 410" fill="none" stroke="#4A90D9" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowHead)"/>
+
+
+    <!-- STEP 1: ANALYSIS (Right) -->
+    <g class="fade-in delay-c1">
+        <rect x="985" y="280" width="210" height="260" rx="15" fill="url(#cardGrad)" filter="url(#dropShadow)"/>
+        <rect x="985" y="280" width="210" height="260" rx="15" fill="url(#dots)" pointer-events="none"/>
+        <g clip-path="url(#clip1)">
+            <circle cx="1150" cy="500" r="90" fill="#ffffff" opacity="0.04"/>
+            <circle cx="1020" cy="260" r="70" fill="#ffffff" opacity="0.02"/>
+        </g>
+        
+        <!-- Icon: Analysis (Magnifying Glass) -->
+        <circle cx="1086" cy="336" r="12" fill="none" stroke="#F5A623" stroke-width="2.5"/>
+        <line x1="1095" y1="345" x2="1104" y2="354" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+
+        <text x="1090" y="395" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">التحليل</text>
+        <line x1="1030" y1="415" x2="1150" y2="415" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5"/>
+        <text x="1090" y="445" font-size="16" font-weight="400" fill="#EEF2F7" text-anchor="middle">تحديد الاحتياجات</text>
+        <text x="1090" y="470" font-size="16" font-weight="400" fill="#EEF2F7" text-anchor="middle">والأهداف</text>
+    </g>
+    <g class="pulse-num delay-c1" style="transform-origin: 1090px 280px;">
+        <circle cx="1090" cy="280" r="28" fill="#ffffff" filter="url(#lightShadow)"/>
+        <text x="1090" y="288" font-size="22" font-weight="800" fill="#2D588C" text-anchor="middle">1</text>
+    </g>
+
+
+    <!-- STEP 2: DESIGN (Middle Right) -->
+    <g class="fade-in delay-c2">
+        <rect x="685" y="280" width="210" height="260" rx="15" fill="url(#cardGrad)" filter="url(#dropShadow)"/>
+        <rect x="685" y="280" width="210" height="260" rx="15" fill="url(#dots)" pointer-events="none"/>
+        <g clip-path="url(#clip2)">
+            <circle cx="850" cy="500" r="90" fill="#ffffff" opacity="0.04"/>
+            <circle cx="720" cy="260" r="70" fill="#ffffff" opacity="0.02"/>
+        </g>
+        
+        <!-- Icon: Design (Blueprint/Document) -->
+        <rect x="778" y="326" width="24" height="24" rx="4" fill="none" stroke="#F5A623" stroke-width="2.5"/>
+        <line x1="784" y1="335" x2="796" y2="335" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="784" y1="343" x2="792" y2="343" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+
+        <text x="790" y="395" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">التصميم</text>
+        <line x1="730" y1="415" x2="850" y2="415" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5"/>
+        <text x="790" y="445" font-size="16" font-weight="400" fill="#EEF2F7" text-anchor="middle">تصميم المحتوى</text>
+        <text x="790" y="470" font-size="16" font-weight="400" fill="#EEF2F7" text-anchor="middle">والأنشطة</text>
+    </g>
+    <g class="pulse-num delay-c2" style="transform-origin: 790px 280px;">
+        <circle cx="790" cy="280" r="28" fill="#ffffff" filter="url(#lightShadow)"/>
+        <text x="790" y="288" font-size="22" font-weight="800" fill="#2D588C" text-anchor="middle">2</text>
+    </g>
+
+
+    <!-- STEP 3: DEVELOPMENT (Middle Left) -->
+    <g class="fade-in delay-c3">
+        <rect x="385" y="280" width="210" height="260" rx="15" fill="url(#cardGrad)" filter="url(#dropShadow)"/>
+        <rect x="385" y="280" width="210" height="260" rx="15" fill="url(#dots)" pointer-events="none"/>
+        <g clip-path="url(#clip3)">
+            <circle cx="550" cy="500" r="90" fill="#ffffff" opacity="0.04"/>
+            <circle cx="420" cy="260" r="70" fill="#ffffff" opacity="0.02"/>
+        </g>
+        
+        <!-- Icon: Development (Gear) -->
+        <circle cx="490" cy="340" r="14" fill="none" stroke="#F5A623" stroke-width="2.5"/>
+        <circle cx="490" cy="340" r="4" fill="#F5A623"/>
+        <path d="M 490 320 L 490 324 M 490 356 L 490 360 M 470 340 L 474 340 M 506 340 L 510 340" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+
+        <text x="490" y="395" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">التطوير</text>
+        <line x1="430" y1="415" x2="550" y2="415" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5"/>
+        <text x="490" y="445" font-size="16" font-weight="400" fill="#EEF2F7" text-anchor="middle">إنتاج المواد</text>
+        <text x="490" y="470" font-size="16" font-weight="400" fill="#EEF2F7" text-anchor="middle">التعليمية</text>
+    </g>
+    <g class="pulse-num delay-c3" style="transform-origin: 490px 280px;">
+        <circle cx="490" cy="280" r="28" fill="#ffffff" filter="url(#lightShadow)"/>
+        <text x="490" y="288" font-size="22" font-weight="800" fill="#2D588C" text-anchor="middle">3</text>
+    </g>
+
+
+    <!-- STEP 4: EVALUATION (Left) -->
+    <g class="fade-in delay-c4">
+        <rect x="85" y="280" width="210" height="260" rx="15" fill="url(#cardGrad)" filter="url(#dropShadow)"/>
+        <rect x="85" y="280" width="210" height="260" rx="15" fill="url(#dots)" pointer-events="none"/>
+        <g clip-path="url(#clip4)">
+            <circle cx="250" cy="500" r="90" fill="#ffffff" opacity="0.04"/>
+            <circle cx="120" cy="260" r="70" fill="#ffffff" opacity="0.02"/>
+        </g>
+        
+        <!-- Icon: Evaluation (Checkmark in circle) -->
+        <circle cx="190" cy="340" r="15" fill="none" stroke="#F5A623" stroke-width="2.5"/>
+        <path d="M 183 341 L 188 346 L 197 334" fill="none" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <text x="190" y="395" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">التقييم</text>
+        <line x1="130" y1="415" x2="250" y2="415" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5"/>
+        <text x="190" y="445" font-size="16" font-weight="400" fill="#EEF2F7" text-anchor="middle">قياس فعالية</text>
+        <text x="190" y="470" font-size="16" font-weight="400" fill="#EEF2F7" text-anchor="middle">التعلم</text>
+    </g>
+    <g class="pulse-num delay-c4" style="transform-origin: 190px 280px;">
+        <circle cx="190" cy="280" r="28" fill="#ffffff" filter="url(#lightShadow)"/>
+        <text x="190" y="288" font-size="22" font-weight="800" fill="#2D588C" text-anchor="middle">4</text>
+    </g>
+</svg>

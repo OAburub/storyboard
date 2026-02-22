@@ -1,0 +1,87 @@
+<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F8F9FA" />
+      <stop offset="100%" stop-color="#EEF2F7" />
+    </linearGradient>
+
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2D588C" />
+      <stop offset="100%" stop-color="#4A90D9" />
+    </linearGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="3" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.15" />
+    </filter>
+
+    <!-- Arrowhead Marker (points left, with tip at refX=10) -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9AB8DC" />
+    </marker>
+  </defs>
+
+  <!-- Background Rectangle -->
+  <rect width="1280" height="720" fill="url(#backgroundGradient)" />
+
+  <!-- Layout Constants:
+       Card Dimensions: width=250, height=120, rx/ry=20
+       Vertical Center for cards: 360 (startY=300)
+       Number Circle Y-center: 260
+       Horizontal X-coordinates (top-left for rects):
+         Card 1: x=56
+         Card 2: x=362
+         Card 3: x=668
+         Card 4: x=974
+       Card Center X-coordinates (for text/circles):
+         Card 1: cx=181
+         Card 2: cx=487
+         Card 3: cx=793
+         Card 4: cx=1099
+  -->
+
+  <!-- Process Steps (Flows Right to Left: 4 -> 3 -> 2 -> 1) -->
+
+  <!-- Card 4: الاختبار (Testing) -->
+  <g>
+    <rect x="974" y="300" width="250" height="120" rx="20" ry="20" fill="url(#cardGradient)" filter="url(#shadow)" />
+    <circle cx="1099" cy="260" r="25" fill="white" filter="url(#shadow)" />
+    <text x="1099" y="260" font-family="Tajawal, sans-serif" font-size="20" fill="#2D588C" text-anchor="middle" dominant-baseline="middle">4</text>
+    <text x="1099" y="360" font-family="Tajawal, sans-serif" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">الاختبار</text>
+  </g>
+
+  <!-- Card 3: التنفيذ (Implementation) -->
+  <g>
+    <rect x="668" y="300" width="250" height="120" rx="20" ry="20" fill="url(#cardGradient)" filter="url(#shadow)" />
+    <circle cx="793" cy="260" r="25" fill="white" filter="url(#shadow)" />
+    <text x="793" y="260" font-family="Tajawal, sans-serif" font-size="20" fill="#2D588C" text-anchor="middle" dominant-baseline="middle">3</text>
+    <text x="793" y="360" font-family="Tajawal, sans-serif" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">التنفيذ</text>
+  </g>
+
+  <!-- Card 2: التصميم (Design) -->
+  <g>
+    <rect x="362" y="300" width="250" height="120" rx="20" ry="20" fill="url(#cardGradient)" filter="url(#shadow)" />
+    <circle cx="487" cy="260" r="25" fill="white" filter="url(#shadow)" />
+    <text x="487" y="260" font-family="Tajawal, sans-serif" font-size="20" fill="#2D588C" text-anchor="middle" dominant-baseline="middle">2</text>
+    <text x="487" y="360" font-family="Tajawal, sans-serif" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">التصميم</text>
+  </g>
+
+  <!-- Card 1: التحليل (Analysis) -->
+  <g>
+    <rect x="56" y="300" width="250" height="120" rx="20" ry="20" fill="url(#cardGradient)" filter="url(#shadow)" />
+    <circle cx="181" cy="260" r="25" fill="white" filter="url(#shadow)" />
+    <text x="181" y="260" font-family="Tajawal, sans-serif" font-size="20" fill="#2D588C" text-anchor="middle" dominant-baseline="middle">1</text>
+    <text x="181" y="360" font-family="Tajawal, sans-serif" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">التحليل</text>
+  </g>
+
+  <!-- Arrows (Curved, connecting cards from Right to Left) -->
+  <!-- Arrow from Card 4 (Testing) to Card 3 (Implementation) -->
+  <path d="M 1224 360 C 1196 320, 696 320, 668 360" fill="none" stroke="#9AB8DC" stroke-width="3" marker-end="url(#arrowhead)" />
+  <!-- Arrow from Card 3 (Implementation) to Card 2 (Design) -->
+  <path d="M 918 360 C 890 320, 390 320, 362 360" fill="none" stroke="#9AB8DC" stroke-width="3" marker-end="url(#arrowhead)" />
+  <!-- Arrow from Card 2 (Design) to Card 1 (Analysis) -->
+  <path d="M 612 360 C 584 320, 84 320, 56 360" fill="none" stroke="#9AB8DC" stroke-width="3" marker-end="url(#arrowhead)" />
+
+</svg>

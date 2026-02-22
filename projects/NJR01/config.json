@@ -28,6 +28,15 @@
         { "type": "summary", "topic": "ملخص الوحدة", "status": "pending" },
         { "type": "post_test", "topic": "الاختبار البعدي", "status": "pending" }
       ]
+    },
+    {
+      "number": 3,
+      "name": "عقلية البيانات: التعلم والتواصل باستخدام البيانات",
+      "contentSource": "User-provided PDF (Chapter 3)",
+      "status": "in_progress",
+      "storyboards": [
+        { "type": "interactive_lecture", "topic": "عقلية البيانات: التعلم والتواصل باستخدام البيانات", "status": "pending" }
+      ]
     }
   ],
   "testConfig": {

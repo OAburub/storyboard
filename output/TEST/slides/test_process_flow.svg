@@ -1,0 +1,65 @@
+<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8F9FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EEF2F7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D588C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A90D9;stop-opacity:1" />
+    </linearGradient>
+    <filter id="dropShadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="2" dy="4" result="offsetblur"/>
+      <feMerge>
+        <feMergeNode in="offsetblur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bgGradient)" />
+
+  <!-- Step 1: الاختبار (Testing) -->
+  <g transform="translate(100, 250)" filter="url(#dropShadow)">
+    <rect width="250" height="150" rx="15" fill="url(#cardGradient)" />
+    <circle cx="125" cy="-30" r="20" fill="#FFFFFF" opacity="0.8"/>
+    <text x="125" y="-25" text-anchor="middle" dominant-baseline="middle" font-family="Tajawal, sans-serif" font-size="18" fill="#000">4</text>
+    <text x="125" y="75" text-anchor="middle" dominant-baseline="middle" font-family="Tajawal, sans-serif" font-size="24" fill="#FFFFFF">الاختبار</text>
+  </g>
+
+  <!-- Step 2: التنفيذ (Implementation) -->
+  <g transform="translate(370, 250)" filter="url(#dropShadow)">
+    <rect width="250" height="150" rx="15" fill="url(#cardGradient)" />
+    <circle cx="125" cy="-30" r="20" fill="#FFFFFF" opacity="0.8"/>
+    <text x="125" y="-25" text-anchor="middle" dominant-baseline="middle" font-family="Tajawal, sans-serif" font-size="18" fill="#000">3</text>
+    <text x="125" y="75" text-anchor="middle" dominant-baseline="middle" font-family="Tajawal, sans-serif" font-size="24" fill="#FFFFFF">التنفيذ</text>
+  </g>
+
+  <!-- Step 3: التصميم (Design) -->
+  <g transform="translate(640, 250)" filter="url(#dropShadow)">
+    <rect width="250" height="150" rx="15" fill="url(#cardGradient)" />
+    <circle cx="125" cy="-30" r="20" fill="#FFFFFF" opacity="0.8"/>
+    <text x="125" y="-25" text-anchor="middle" dominant-baseline="middle" font-family="Tajawal, sans-serif" font-size="18" fill="#000">2</text>
+    <text x="125" y="75" text-anchor="middle" dominant-baseline="middle" font-family="Tajawal, sans-serif" font-size="24" fill="#FFFFFF">التصميم</text>
+  </g>
+
+  <!-- Step 4: التحليل (Analysis) -->
+  <g transform="translate(910, 250)" filter="url(#dropShadow)">
+    <rect width="250" height="150" rx="15" fill="url(#cardGradient)" />
+    <circle cx="125" cy="-30" r="20" fill="#FFFFFF" opacity="0.8"/>
+    <text x="125" y="-25" text-anchor="middle" dominant-baseline="middle" font-family="Tajawal, sans-serif" font-size="18" fill="#000">1</text>
+    <text x="125" y="75" text-anchor="middle" dominant-baseline="middle" font-family="Tajawal, sans-serif" font-size="24" fill="#FFFFFF">التحليل</text>
+  </g>
+
+  <!-- Arrows -->
+  <path d="M910,325 C850,325 810,325 750,325" stroke="#4A90D9" stroke-width="4" fill="transparent" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <path d="M640,325 C580,325 540,325 480,325" stroke="#4A90D9" stroke-width="4" fill="transparent" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <path d="M370,325 C310,325 270,325 210,325" stroke="#4A90D9" stroke-width="4" fill="transparent" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+
+   <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A90D9" />
+    </marker>
+  </defs>
+</svg>

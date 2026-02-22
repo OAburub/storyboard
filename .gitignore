@@ -8,3 +8,4 @@ __pycache__/
 tmp_*.sh
 tmp_*.py
 tmp_*.js
+_archive/

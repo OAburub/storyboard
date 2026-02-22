@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+    <defs>
+        <!-- Background Gradients -->
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#F8F9FA" />
+            <stop offset="100%" stop-color="#EEF2F7" />
+        </linearGradient>
+        
+        <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+        </radialGradient>
+
+        <!-- Subtle Premium Drop Shadow -->
+        <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="16" result="blur" />
+            <feOffset dx="0" dy="12" result="offsetBlur" />
+            <feComponentTransfer>
+                <feFuncA type="linear" slope="0.04" />
+            </feComponentTransfer>
+            <feMerge>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+
+        <!-- Graphic Element Gradients -->
+        <linearGradient id="titleUnderline" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#4A90D9" />
+            <stop offset="100%" stop-color="#2D588C" />
+        </linearGradient>
+    </defs>
+
+    <!-- Background Layer -->
+    <rect width="1280" height="720" fill="url(#bgGradient)" />
+    
+    <!-- Subtle Background Geometric Accents -->
+    <circle cx="150" cy="100" r="350" fill="#4A90D9" opacity="0.03" pointer-events="none" />
+    <circle cx="1150" cy="650" r="450" fill="#F5A623" opacity="0.02" pointer-events="none" />
+    
+    <!-- Central Radial Glow -->
+    <circle cx="640" cy="360" r="500" fill="url(#glowGradient)" pointer-events="none" />
+
+    <!-- Top Title Section -->
+    <g direction="rtl">
+        <text x="640" y="100" font-family="Tajawal, sans-serif" font-size="28" font-weight="700" fill="#2D588C" text-anchor="middle" letter-spacing="0.5">حكمة تعليمية</text>
+        <rect x="620" y="120" width="40" height="3" rx="1.5" fill="url(#titleUnderline)" />
+    </g>
+
+    <!-- Main Quote Card -->
+    <rect x="240" y="180" width="800" height="360" rx="15" fill="#FFFFFF" filter="url(#softShadow)" stroke="#E0E8F0" stroke-width="0.5" />
+
+    <!-- Large Decorative Quotation Marks -->
+    <g font-family="Tajawal, sans-serif" font-size="120" font-weight="700" fill="#E0E8F0" text-anchor="middle" pointer-events="none">
+        <text x="930" y="295">«</text>
+        <text x="350" y="445">»</text>
+    </g>
+
+    <!-- Quote Content -->
+    <g font-family="Tajawal, sans-serif" text-anchor="middle" direction="rtl">
+        <!-- Main Quote Text (28px with 1.5x+ visual spacing) -->
+        <text x="640" y="300" font-size="28" font-weight="500" fill="#2D588C">التعليم ليس ملء دلو،</text>
+        <text x="640" y="350" font-size="28" font-weight="500" fill="#2D588C">بل إشعال نار</text>
+
+        <!-- Subtle Geometric Accent (Orange Diamond) -->
+        <polygon points="640,395 645,400 640,405 635,400" fill="#F5A623" opacity="0.8" />
+
+        <!-- Attribution -->
+        <text x="640" y="445" font-size="18" font-weight="400" fill="#6B7C93">&#8212; ويليام بتلر ييتس</text>
+    </g>
+</svg>

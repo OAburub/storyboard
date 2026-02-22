@@ -1,0 +1,105 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8F9FA;" />
+      <stop offset="100%" style="stop-color:#EEF2F7;" />
+    </linearGradient>
+
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D588C" />
+      <stop offset="100%" stop-color="#4A90D9" />
+    </linearGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8" />
+      <feOffset dx="0" dy="8" result="offsetblur" />
+      <feFlood flood-color="#000" flood-opacity="0.2" />
+      <feComposite in2="offsetblur" operator="in" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Arrowhead Marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2D588C" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1280" height="720" fill="url(#bgGradient)" />
+
+  <!-- Title -->
+  <text x="640" y="90" font-family="Tajawal, sans-serif" font-size="28" font-weight="bold" fill="#2D588C" text-anchor="middle" direction="rtl">
+    مراحل تطوير البرمجيات
+  </text>
+
+  <!-- Card dimensions: width=250, height=130 -->
+  <!-- Card Y-position (top edge): 280, Center Y for arrow: 280 + 130/2 = 345 -->
+  <!-- Horizontal spacing between cards: 70px -->
+  <!-- Left padding for the whole row: 35px -->
+
+  <!-- Step 1: التحليل — دراسة الاحتياجات (Rightmost Card) -->
+  <g>
+    <rect x="995" y="280" width="250" height="130" rx="15" ry="15" fill="url(#cardGradient)" filter="url(#dropShadow)" />
+    <!-- Step number circle -->
+    <circle cx="1120" cy="255" r="20" fill="white" stroke="#2D588C" stroke-width="2" />
+    <text x="1120" y="255" font-family="Tajawal, sans-serif" font-size="16" font-weight="bold" fill="#2D588C" text-anchor="middle" alignment-baseline="central">1</text>
+    <!-- Step text -->
+    <text x="1120" y="325" font-family="Tajawal, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle" direction="rtl">التحليل</text>
+    <text x="1120" y="360" font-family="Tajawal, sans-serif" font-size="16" fill="white" text-anchor="middle" direction="rtl">دراسة الاحتياجات</text>
+  </g>
+
+  <!-- Step 2: التصميم — إعداد المخطط -->
+  <g>
+    <rect x="675" y="280" width="250" height="130" rx="15" ry="15" fill="url(#cardGradient)" filter="url(#dropShadow)" />
+    <!-- Step number circle -->
+    <circle cx="800" cy="255" r="20" fill="white" stroke="#2D588C" stroke-width="2" />
+    <text x="800" y="255" font-family="Tajawal, sans-serif" font-size="16" font-weight="bold" fill="#2D588C" text-anchor="middle" alignment-baseline="central">2</text>
+    <!-- Step text -->
+    <text x="800" y="325" font-family="Tajawal, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle" direction="rtl">التصميم</text>
+    <text x="800" y="360" font-family="Tajawal, sans-serif" font-size="16" fill="white" text-anchor="middle" direction="rtl">إعداد المخطط</text>
+  </g>
+
+  <!-- Step 3: التطوير — بناء النظام -->
+  <g>
+    <rect x="355" y="280" width="250" height="130" rx="15" ry="15" fill="url(#cardGradient)" filter="url(#dropShadow)" />
+    <!-- Step number circle -->
+    <circle cx="480" cy="255" r="20" fill="white" stroke="#2D588C" stroke-width="2" />
+    <text x="480" y="255" font-family="Tajawal, sans-serif" font-size="16" font-weight="bold" fill="#2D588C" text-anchor="middle" alignment-baseline="central">3</text>
+    <!-- Step text -->
+    <text x="480" y="325" font-family="Tajawal, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle" direction="rtl">التطوير</text>
+    <text x="480" y="360" font-family="Tajawal, sans-serif" font-size="16" fill="white" text-anchor="middle" direction="rtl">بناء النظام</text>
+  </g>
+
+  <!-- Step 4: الاختبار — فحص الجودة (Leftmost Card) -->
+  <g>
+    <rect x="35" y="280" width="250" height="130" rx="15" ry="15" fill="url(#cardGradient)" filter="url(#dropShadow)" />
+    <!-- Step number circle -->
+    <circle cx="160" cy="255" r="20" fill="white" stroke="#2D588C" stroke-width="2" />
+    <text x="160" y="255" font-family="Tajawal, sans-serif" font-size="16" font-weight="bold" fill="#2D588C" text-anchor="middle" alignment-baseline="central">4</text>
+    <!-- Step text -->
+    <text x="160" y="325" font-family="Tajawal, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle" direction="rtl">الاختبار</text>
+    <text x="160" y="360" font-family="Tajawal, sans-serif" font-size="16" fill="white" text-anchor="middle" direction="rtl">فحص الجودة</text>
+  </g>
+
+  <!-- Connecting Arrows (Curved, pointing Left) -->
+  <!-- Y-center for arrows: 345 -->
+
+  <!-- Arrow from Step 1 to Step 2 -->
+  <path d="M 990 345 C 970 385, 950 385, 930 345"
+        stroke="#2D588C" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+
+  <!-- Arrow from Step 2 to Step 3 -->
+  <path d="M 670 345 C 650 385, 630 385, 610 345"
+        stroke="#2D588C" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+
+  <!-- Arrow from Step 3 to Step 4 -->
+  <path d="M 350 345 C 330 385, 310 385, 290 345"
+        stroke="#2D588C" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+
+</svg>
