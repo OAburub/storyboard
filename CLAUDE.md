@@ -48,10 +48,11 @@ scripts/
 - All formatting, RTL, fonts, colors handled automatically
 - The agent produces CONTENT and calls engine builders via `python3 -c "..."`
 - Portable imports: `_paths.py` auto-detects project root via git (works on any machine)
-- For PPTX: agent acts as **art director** with a 3-tool visual palette (see `references/principles.md`):
+- For PPTX: agent acts as **art director** with a 4-tool visual palette (see `references/principles.md`):
   - **Native PPTX shapes** — when the layout pattern IS the visual (stat cards, timelines)
   - **SVG concept visualization** — when a visual metaphor makes an abstract concept tangible (PRIMARY tool, not last resort)
   - **AI-generated images** — when a contextual illustration adds real-world meaning
+  - **HTML Screenshot** — when the visual must look like real software UI; primary tool for شاشة توضيحية; lazy-load `references/screenshot-gen.md`
 - Every PPTX slide has **Storyline blueprints** in speaker notes (layers, states, triggers, variables)
 
 ## Non-Negotiable Rules

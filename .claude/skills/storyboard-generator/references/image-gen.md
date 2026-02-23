@@ -1,6 +1,23 @@
 # Image Generation API Reference
 
-Generate AI images using Nano Banana Pro (Gemini 3 Pro) with project visual direction.
+## Method 4: HTML Screenshot (شاشة توضيحية / UI Mockups)
+
+For UI screens, app mockups, forms, and dashboards — **lazy-load `references/screenshot-gen.md`** for the full workflow. In brief:
+
+```bash
+# 1. Write HTML to: output/{PROJECT}/U{XX}/screenshots/{name}.html
+# 2. Run:
+python3 .claude/skills/storyboard-generator/scripts/screenshot_gen.py \
+  output/{PROJECT}/U{XX}/screenshots/{name}.html \
+  output/{PROJECT}/U{XX}/screenshots/{name}.png
+# 3. Pass PNG path as image_path= to any builder method
+```
+
+Caching built-in: if PNG exists, script prints `CACHED: path` and skips. Read `references/screenshot-gen.md` only when you need the HTML template or design rules.
+
+---
+
+## Methods 1–3: AI Image Generation via Nano Banana Pro (Gemini 3 Pro)
 
 ## Main Function: `generate_storyboard_image()`
 

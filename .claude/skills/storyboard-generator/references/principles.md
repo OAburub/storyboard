@@ -6,7 +6,7 @@ All other reference files REFERENCE this document for philosophy and principles.
 
 The agent is an **art director**, not a template filler. Every visual choice serves the LEARNER. For each slide, ask: **"What visual would make this concept click fastest for the learner?"**
 
-## The 3-Tool Visual Palette
+## The 4-Tool Visual Palette
 
 Choose based on what helps the learner UNDERSTAND, not what's easiest to build:
 
@@ -15,6 +15,7 @@ Choose based on what helps the learner UNDERSTAND, not what's easiest to build:
 | **Native PPTX shapes** | When the layout pattern itself IS the visual (stat cards show numbers, timelines show progression, comparisons show differences) | Don't use just because it's the default |
 | **SVG concept visualization** (via Gemini, `use_svg=True`) | When a visual metaphor, diagram, or architecture makes an abstract concept tangible. SVG is a PRIMARY visualization tool. | Don't use for text-heavy content (Arabic text rendering issues) |
 | **AI-generated images** (via Nano Banana / Gemini, `image_prompt`) | When a contextual illustration adds real-world meaning. Each image should help the learner visualize the concept. | Don't use as decoration. No generic stock-photo descriptions. |
+| **HTML Screenshot** (via Playwright, `image_path`) | When the visual needs to look like real software UI — app screens, forms, dashboards, portals. Primary tool for **شاشة توضيحية** in video scripts. Lazy-load `references/screenshot-gen.md` when needed. | Don't use for abstract concepts (use SVG) or illustrations (use AI image) |
 
 Any slide can **combine tools**: SVG diagram + AI image when both add value.
 
