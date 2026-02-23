@@ -38,7 +38,7 @@ REQUIRED before building any PPTX lecture. The agent must:
 2. Present the plan to the user for review
 3. Wait for approval BEFORE building
 
-See `references/slide-composition.md` → "Planning Phase" for the template.
+See `references/pptx-composition-arc.md` → "Planning Phase" for the template.
 See `references/composition-examples.md` for creative thinking examples.
 
 ## 8 Non-Negotiable Rules

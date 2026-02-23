@@ -40,7 +40,7 @@ For each requested storyboard type:
 1. Read `references/storyboard-types.md` for the specific type's rules
 2. For PPTX lectures: also read `references/visual-grammar.md` + `references/pptx-design-system.md` + `references/storyline-blueprint.md`
 3. **For PPTX lectures: Create Visual Composition Plan BEFORE building**
-   - Read `references/slide-composition.md` → "Planning Phase" section
+   - Read `references/pptx-composition-arc.md` → "Planning Phase" section
    - Create slide-by-slide plan: visual pattern + SVG concept + AI image prompt per slide
    - Present the visual plan table to user for review
    - Wait for approval. THEN build.

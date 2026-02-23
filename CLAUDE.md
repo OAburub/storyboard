@@ -80,7 +80,7 @@ Phase 2: Learning Objectives
 
 Phase 3: Individual Storyboards (one at a time)
   → Read type-specific instructions from references/storyboard-types.md
-  → For PPTX: also read slide-composition.md + visual-grammar.md + pptx-design-system.md
+  → For PPTX: also read pptx-composition-arc.md + visual-grammar.md + pptx-design-system.md
   → Generate content + call engine builder
   → Present for user review → next type after approval
 ```
@@ -126,7 +126,7 @@ Phase 3: Individual Storyboards (one at a time)
 | Interactions | quiz, drag_drop, click_reveal, slider, dropdown, scenario | 6 |
 | Depth | depth_wash, depth_accent, decorative_corner, progress_dots, header_bar, section_banner | 6 |
 
-## Skill Reference Files (15 docs)
+## Skill Reference Files (13 docs)
 
 Navigate by what you're doing:
 
@@ -136,7 +136,7 @@ Navigate by what you're doing:
 | **Composing** | `composition-examples.md` | 3 creative composition examples with agent reasoning (Anthropic "Tool Use Examples" pattern) |
 | **Analyzing** | `storyboard-types.md` | Per-type domain knowledge, rules, quality standards |
 | **Analyzing** | `educational-standards.md` | Bloom's Taxonomy, QM alignment, Gagne's Nine Events, NELC, growth mindset feedback |
-| **Designing** | `slide-composition.md` | How to compose a full lecture (narrative arc, pacing, art direction) |
+| **Designing** | `pptx-composition-arc.md` | Pre-build planning, narrative arc, motivation arc, pacing, engagement design, art direction |
 | **Designing** | `visual-grammar.md` | 8 visual patterns + selection guide |
 | **Designing** | `pptx-design-system.md` | Art direction, typography, colors, depth |
 | **Building** | `pptx-builder.md` | Full PPTX API (28 methods across all modules) |

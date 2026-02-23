@@ -19,16 +19,7 @@ You have a **3-tool visual palette** — choose based on what serves learning, n
 
 Any slide can **combine tools**: an SVG concept diagram WITH an AI image. Think about **composition, whitespace, focal points, and pacing** — not just "which pattern to use."
 
-## Critical Rules (7 Non-Negotiable)
-
-1. **COORDINATOR + CONTENT PRODUCER** — You orchestrate AND generate content directly. No subagents.
-2. **ONE AT A TIME** — Generate each storyboard type individually with user review between each.
-3. **ENGINE BUILDS DOCUMENTS** — All documents built by scripts in `scripts/`. Call via `python3 -c "..."`.
-4. **ARABIC RTL** — All content in Arabic, right-to-left. No tashkeel/diacritics.
-5. **USER DECIDES** — Suggest approach, user approves before proceeding.
-6. **VISUAL GRAMMAR** — For PPTX: choose the best visual pattern per concept. Never default to bullets.
-7. **STORYLINE-READY** — Every PPTX slide must have named shapes and Storyline blueprint in speaker notes.
-8. **LEARNER-FIRST VISUALS** — Choose whatever visual tool (native, SVG, AI image, or combo) best helps the learner understand. Plan visuals BEFORE building. Never default to the "easy" option.
+**Non-Negotiable Rules** → See CLAUDE.md
 
 ## Workflow
 
@@ -42,7 +33,7 @@ Save to: `projects/[code]/config.json`
 - **Assign Bloom's level to each topic** (read `educational-standards.md` Section 1)
 - **Create draft alignment map**: objective → content → activity → assessment (Section 3)
 - **Identify "Why This Matters" hooks** for each section (Section 7)
-- **Plan Motivation Arc** (read `references/engagement-design-for-pptx.md` → "The Five Questions"):
+- **Plan Motivation Arc** (read `references/pptx-composition-arc.md` → Part 4 "Pre-Build Design Questions"):
   - What should the learner FEEL? (target aesthetics)
   - What's the learner's current motivation level?
   - Where are the information gaps that create curiosity?
@@ -62,10 +53,10 @@ Save to: `projects/[code]/config.json`
 For each requested type:
 1. Read type-specific instructions from `references/storyboard-types.md`
 2. For PPTX lectures: also read design references + `educational-standards.md` Gagne's Nine Events (Section 2)
-3. For PPTX lectures: also read `references/engagement-design-for-pptx.md` (Motivation Arc, SDT in slides, engagement checklist)
+3. For PPTX lectures: also read `references/pptx-composition-arc.md` (Parts 1-5: planning, arcs, pacing, engagement)
 4. For tests: read `educational-standards.md` Bloom's-question mapping + feedback library (Sections 5, 8)
 5. **For PPTX lectures: Create Visual Composition Plan BEFORE building**
-   - Read `references/slide-composition.md` → "Planning Phase" section
+   - Read `references/pptx-composition-arc.md` → Part 1 "Pre-Build Planning" section
    - Create slide-by-slide plan: visual pattern + SVG concept + AI image prompt per slide
    - **Map each slide to Motivation Arc phase** (Hook/Ignite/Struggle/Triumph/Launch)
    - **Verify the 3-4 slide rule:** no more than 3-4 content slides without an interaction
@@ -109,35 +100,9 @@ from pptx_engine import LectureBuilder  # Interactive & PDF lectures
 - **Interactions** (6): quiz, drag_drop, click_reveal, slider, dropdown, scenario
 - **Depth** (5): depth_wash, depth_accent, decorative_corner, progress_dots, header_bar, section_banner
 
-## Builder-to-Storyboard Mapping
-
-| Type | Builder | Ext |
-|---|---|---|
-| الأهداف التعليمية (Objectives) | ObjectivesBuilder | .docx |
-| خارطة التعلم (Learning Map) | InfographicBuilder | .docx |
-| الاختبار القبلي (Pre-Test) | TestBuilder | .docx |
-| المحاضرة التفاعلية (Interactive Lecture) | LectureBuilder | .pptx |
-| محاضرة PDF (PDF Lecture) | LectureBuilder | .pptx |
-| فيديو موشن (Motion Video) | VideoBuilder | .docx |
-| نشاط تفاعلي (Activity) | ActivityBuilder | .docx |
-| النقاش (Discussion) | DiscussionBuilder | .docx |
-| الواجب (Assignment) | AssignmentBuilder | .docx |
-| الاختبار البعدي (Post-Test) | TestBuilder | .docx |
-| الملخص (Summary) | SummaryBuilder | .docx |
-| اختبار المقرر (Course Exam) | TestBuilder | .docx |
-
 ## Image Generation
 
 All builders support AI image generation via `image_prompt` parameter. Priority: `image_path` > `image_prompt`. See `references/image-gen.md` for full API.
-
-## Project Config
-
-Read from `projects/[code]/config.json`. Includes project metadata, branding paths, and visual direction rules.
-
-## Output Path Convention
-```
-output/[project-code]/U[XX]/[CODE]_U[XX]_[Element_Type].[ext]
-```
 
 ## Navigation — Read What You Need
 
@@ -152,16 +117,15 @@ output/[project-code]/U[XX]/[CODE]_U[XX]_[Element_Type].[ext]
 → `references/educational-standards.md` — Bloom's verb table (Arabic + English), objective formula, alignment map template
 
 ### When designing a PPTX lecture:
-→ `references/engagement-design-for-pptx.md` — **Motivation Arc, SDT in slides, engagement checklist, information gap techniques**
+→ `references/pptx-composition-arc.md` — **Pre-build planning, narrative arc, motivation arc, pacing, engagement design, SDT, information gap techniques**
 → `references/visual-grammar.md` — 8 visual patterns + selection guide
 → `references/pptx-design-system.md` — art direction, typography, colors, depth
-→ `references/slide-composition.md` — how to compose a full lecture (narrative arc, pacing, variety)
 → `references/storyline-blueprint.md` — Storyline 360 interaction specs
 → `references/educational-standards.md` — Gagne's Nine Events → slide mapping (Section 2)
 
 ### When composing a PPTX lecture (creative thinking):
 → `references/composition-examples.md` — 3 complete examples of creative visual composition with agent reasoning
-→ `references/svg-prompt-guide.md` — SVG prompt engineering patterns for writing better concept descriptions
+→ `references/visual-grammar.md` → "SVG Prompt Engineering Patterns" section — prompt patterns for writing better concept descriptions
 
 ### When building slides:
 → `references/pptx-builder.md` — full API for all 28 slide methods

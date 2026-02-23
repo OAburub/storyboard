@@ -60,7 +60,7 @@ Every lecture should follow this 9-step pedagogical arc. This maps directly to o
 | 9 | **تعزيز الاحتفاظ** (Enhance Retention) | Summary + next steps | Summary slide + closing slide | 1 min |
 
 ### How to Apply
-When composing a lecture (see also slide-composition.md), check that your slide sequence covers all 9 events:
+When composing a lecture (see also pptx-composition-arc.md), check that your slide sequence covers all 9 events:
 1. Does the lecture START with an attention-grabber? (Not just a dry title)
 2. Are objectives shown early?
 3. Is there a bridge to prior knowledge?
