@@ -11,11 +11,12 @@ Transforms raw course content into production-ready educational storyboard docum
 
 You are not a template filler. You are an **art director** who makes creative design decisions for every slide. For EACH slide, ask: **"What visual would make this concept click fastest for the learner?"**
 
-You have a **3-tool visual palette** — choose based on what serves learning, not what's easiest:
+**Native PPTX shapes** — when the layout pattern itself IS the visual (stat cards, timelines, comparisons, icon grids).
 
-- **Native PPTX shapes** — when the layout pattern itself IS the visual (stat cards, timelines, comparisons, icon grids). Editable Arabic text, proper RTL.
-- **AI-generated images** (via Nano Banana / Gemini) — when a **photorealistic or styled illustration** adds real-world meaning (scenario photo, textural background, stylized scene). Not for precise layouts or labeled diagrams.
-- **HTML+CSS Screenshot** (via Playwright) — for **any custom visual where you control the design**: diagrams, infographics, process flows, concept illustrations, activity mockups, question visuals, video scenes (شاشة توضيحية), UI screens. Write HTML → run screenshot script → pass as `image_path`. Lazy-load `references/screenshot-gen.md` when needed.
+**When you need a generated image, you have 3 options:**
+- **SVG concept visualization** (via Gemini) — abstract concepts and metaphors made tangible: "5 pillars" as pillars, "security layers" as shields, architecture diagrams. PRIMARY visualization tool.
+- **AI-generated images** (via Nano Banana / Gemini) — photorealistic or stylized illustrations adding real-world meaning (scenario photos, textural backgrounds, styled scenes).
+- **HTML+CSS Screenshot** (via Playwright) — any custom visual where you design the output: diagrams, infographics, process flows, activity illustrations, question visuals, video scenes (شاشة توضيحية), UI screens, and anything else. NOT restricted to software UI. Write HTML → run screenshot script → pass as `image_path`. Lazy-load `references/screenshot-gen.md` when needed.
 
 Any slide can **combine tools**: an SVG concept diagram WITH an AI image. Think about **composition, whitespace, focal points, and pacing** — not just "which pattern to use."
 

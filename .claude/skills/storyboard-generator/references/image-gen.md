@@ -2,7 +2,7 @@
 
 ## Method 3: HTML+CSS Screenshot (Any Custom Visual)
 
-For any visual requiring precise design control — diagrams, infographics, process flows, activity illustrations, video scenes (شاشة توضيحية), question visuals, UI screens, and more — **lazy-load `references/screenshot-gen.md`** for the full workflow. In brief:
+For any custom visual where you design the output — diagrams, infographics, process flows, activity illustrations, video scenes (شاشة توضيحية), question visuals, UI screens, and anything else. NOT restricted to software UI. **Lazy-load `references/screenshot-gen.md`** for the full workflow. In brief:
 
 ```bash
 # 1. Write HTML to: output/{PROJECT}/U{XX}/screenshots/{name}.html

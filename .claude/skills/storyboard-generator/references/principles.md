@@ -6,36 +6,48 @@ All other reference files REFERENCE this document for philosophy and principles.
 
 The agent is an **art director**, not a template filler. Every visual choice serves the LEARNER. For each slide, ask: **"What visual would make this concept click fastest for the learner?"**
 
-## The 3-Tool Visual Palette
+## The Visual Palette
 
-Choose based on what helps the learner UNDERSTAND, not what's easiest to build:
+**Native PPTX shapes** — when the layout pattern itself IS the visual (stat cards, timelines, comparisons). The slide structure carries the meaning.
 
-| Tool | When to Use | NOT For |
-|------|-------------|---------|
-| **Native PPTX shapes** | When the layout pattern itself IS the visual (stat cards show numbers, timelines show progression, comparisons show differences) | Don't use just because it's the default |
-| **AI-generated images** (via Nano Banana / Gemini, `image_prompt`) | When a photorealistic or styled illustration adds real-world meaning — a scenario photo, a textural background, a stylized scene. | Don't use when you need precise control over layout or labeled diagrams |
-| **HTML+CSS Screenshot** (via Playwright, `image_path`) | For ANY custom visual where you control the output: concept diagrams, infographics, process flows, activity illustrations, question visuals, video scenes (شاشة توضيحية), data visualizations, UI screens, or anything that benefits from precise design. Write HTML → run screenshot script → embed PNG. Lazy-load `references/screenshot-gen.md` when needed. | Don't use for photorealistic images (use AI image) |
+**When you need a generated image, you have 3 options:**
 
-Any slide can **combine tools**: an HTML diagram + AI image when both add value.
+| Option | When to Use | NOT For |
+|--------|-------------|---------|
+| **SVG concept visualization** (via Gemini, `use_svg=True`) | When a visual metaphor or architecture diagram makes an abstract concept tangible: pillars, shields, ecosystems, tech stacks, data flows | Text-heavy content (Arabic text in SVG has rendering limits) |
+| **AI-generated images** (`image_prompt`) | When a photorealistic or stylized illustration adds real-world meaning — a scenario scene, a textural background, a styled illustration | Diagrams, labeled layouts, or anything needing precise structure |
+| **HTML+CSS Screenshot** (`image_path`, via Playwright) | For ANY custom visual where you design the output: diagrams, infographics, process flows, activity illustrations, question visuals, video scenes (شاشة توضيحية), data visualizations, UI screens. Not restricted to software — use it whenever HTML gives you better control. Lazy-load `references/screenshot-gen.md` when needed. | Photorealistic images (use AI image instead) |
+
+Any slide can **combine**: SVG concept + AI background image, HTML diagram + AI illustration, etc.
+
+## SVG Philosophy
+
+SVG is NOT a last resort for "complex diagrams." It is a **primary visualization tool** for making concepts tangible:
+- "5 pillars of X" → Building with labeled pillars
+- "Security layers" → Concentric shields
+- "Innovation ecosystem" → Connected growing elements
+- "Technology stack" → Stacked layers
+- "Data pipeline" → Flow through transformation stages
+
+**Ask**: "Would seeing this concept as a picture help the learner understand faster?" If yes → SVG (or HTML if you need richer layout/text).
+
+**Limitation**: Keep Arabic labels short (1-3 words) inside SVG. Long Arabic text should be in native PPTX shapes alongside the SVG, or use HTML+CSS instead.
 
 ## HTML+CSS Philosophy
 
-HTML+CSS is the primary tool for custom visual design. It is NOT limited to software UI — use it whenever you want to create something precise and designed:
-- "5 pillars of X" → Styled cards arranged as pillars
-- "Security layers" → Nested styled divs with labels
-- "Step-by-step process" → Numbered flow with arrows
-- "Activity instructions" → Visual representation of how the activity works
-- "Video scene" → What the learner sees on screen at that moment
-- "Data comparison" → Side-by-side styled panels
+HTML+CSS is NOT limited to software UI mockups. Use it whenever you want a designed visual with full layout control:
+- Precise multi-column layouts with Arabic text
+- Styled diagrams with real font rendering
+- Activity illustrations (what a drag-and-drop looks like)
+- Video scenes / شاشة توضيحية
+- Any visual where SVG's text limitations would be a problem
 
-**Ask**: "Do I need precise control over this visual?" If yes → HTML+CSS Screenshot.
-
-**Key advantage over SVG**: Full CSS layout, real Arabic text rendering (with Tajawal font), reliable RTL, and no text-in-SVG limitations. Inline SVG can still be embedded inside HTML when vector shapes are needed.
+Inline SVG can still be embedded inside HTML when you need vector shapes within a richer layout.
 
 ## Visual Composition Plan
 
 REQUIRED before building any PPTX lecture. The agent must:
-1. Create a slide-by-slide visual plan (pattern + HTML visual? + AI image? per slide)
+1. Create a slide-by-slide visual plan (pattern + which image option? per slide)
 2. Present the plan to the user for review
 3. Wait for approval BEFORE building
 
