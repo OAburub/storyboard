@@ -1,14 +1,21 @@
 # HTML Screenshot — Reference
 
-**When to load this file**: Only when generating a شاشة توضيحية (UI mockup / demo screen) or any visual that needs to look like real software.
+**When to load this file**: When generating any custom visual using HTML+CSS — diagrams, infographics, activity illustrations, video scenes, question visuals, UI screens, or anything requiring precise design control.
 
 ---
 
 ## When to Use
 
-- **شاشة توضيحية** in VideoBuilder scenes — the "what does the screen look like" field
-- UI mockups: app screens, dashboards, forms, dialogs, portals
-- Any visual best expressed as rendered HTML (not abstract → use SVG; not illustration → use AI image)
+Use HTML+CSS Screenshot for any visual where you want to control the output precisely:
+- **Diagrams and concept visuals** — process flows, concept maps, hierarchies, comparisons
+- **Infographics** — data visualizations, stats panels, icon+text layouts
+- **Activity illustrations** — show what a drag-and-drop, matching, or quiz activity looks like
+- **Video scenes / شاشة توضيحية** — what the learner sees on screen at each moment in a motion video
+- **Question visuals** — scenario setups, visual multiple-choice, illustrated prompts
+- **UI screens** — when the content happens to involve software (forms, dashboards, portals)
+- **Anything where precise layout, color, and Arabic text control matters**
+
+Use **AI-generated images** instead only when you want a photorealistic or stylized illustration (a scene photo, a textural background).
 
 ## 3-Step Workflow
 

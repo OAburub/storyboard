@@ -6,36 +6,36 @@ All other reference files REFERENCE this document for philosophy and principles.
 
 The agent is an **art director**, not a template filler. Every visual choice serves the LEARNER. For each slide, ask: **"What visual would make this concept click fastest for the learner?"**
 
-## The 4-Tool Visual Palette
+## The 3-Tool Visual Palette
 
 Choose based on what helps the learner UNDERSTAND, not what's easiest to build:
 
 | Tool | When to Use | NOT For |
 |------|-------------|---------|
 | **Native PPTX shapes** | When the layout pattern itself IS the visual (stat cards show numbers, timelines show progression, comparisons show differences) | Don't use just because it's the default |
-| **SVG concept visualization** (via Gemini, `use_svg=True`) | When a visual metaphor, diagram, or architecture makes an abstract concept tangible. SVG is a PRIMARY visualization tool. | Don't use for text-heavy content (Arabic text rendering issues) |
-| **AI-generated images** (via Nano Banana / Gemini, `image_prompt`) | When a contextual illustration adds real-world meaning. Each image should help the learner visualize the concept. | Don't use as decoration. No generic stock-photo descriptions. |
-| **HTML Screenshot** (via Playwright, `image_path`) | When the visual needs to look like real software UI — app screens, forms, dashboards, portals. Primary tool for **شاشة توضيحية** in video scripts. Lazy-load `references/screenshot-gen.md` when needed. | Don't use for abstract concepts (use SVG) or illustrations (use AI image) |
+| **AI-generated images** (via Nano Banana / Gemini, `image_prompt`) | When a photorealistic or styled illustration adds real-world meaning — a scenario photo, a textural background, a stylized scene. | Don't use when you need precise control over layout or labeled diagrams |
+| **HTML+CSS Screenshot** (via Playwright, `image_path`) | For ANY custom visual where you control the output: concept diagrams, infographics, process flows, activity illustrations, question visuals, video scenes (شاشة توضيحية), data visualizations, UI screens, or anything that benefits from precise design. Write HTML → run screenshot script → embed PNG. Lazy-load `references/screenshot-gen.md` when needed. | Don't use for photorealistic images (use AI image) |
 
-Any slide can **combine tools**: SVG diagram + AI image when both add value.
+Any slide can **combine tools**: an HTML diagram + AI image when both add value.
 
-## SVG Philosophy
+## HTML+CSS Philosophy
 
-SVG is NOT a last resort for "complex diagrams." It is a **primary visualization tool** for making concepts tangible:
-- "5 pillars of X" → Building with labeled pillars
-- "Security layers" → Concentric shields
-- "Innovation ecosystem" → Connected growing elements
-- "Technology stack" → Stacked layers
-- "Data pipeline" → Flow through transformation stages
+HTML+CSS is the primary tool for custom visual design. It is NOT limited to software UI — use it whenever you want to create something precise and designed:
+- "5 pillars of X" → Styled cards arranged as pillars
+- "Security layers" → Nested styled divs with labels
+- "Step-by-step process" → Numbered flow with arrows
+- "Activity instructions" → Visual representation of how the activity works
+- "Video scene" → What the learner sees on screen at that moment
+- "Data comparison" → Side-by-side styled panels
 
-**Ask**: "Would seeing this concept as a picture help the learner understand faster?" If yes → SVG.
+**Ask**: "Do I need precise control over this visual?" If yes → HTML+CSS Screenshot.
 
-**Limitation**: Keep Arabic labels short (1-3 words) inside SVG. Long text should be in native PPTX shapes alongside the SVG visual.
+**Key advantage over SVG**: Full CSS layout, real Arabic text rendering (with Tajawal font), reliable RTL, and no text-in-SVG limitations. Inline SVG can still be embedded inside HTML when vector shapes are needed.
 
 ## Visual Composition Plan
 
 REQUIRED before building any PPTX lecture. The agent must:
-1. Create a slide-by-slide visual plan (pattern + SVG? + image? per slide)
+1. Create a slide-by-slide visual plan (pattern + HTML visual? + AI image? per slide)
 2. Present the plan to the user for review
 3. Wait for approval BEFORE building
 

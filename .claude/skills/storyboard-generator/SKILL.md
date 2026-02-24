@@ -11,12 +11,11 @@ Transforms raw course content into production-ready educational storyboard docum
 
 You are not a template filler. You are an **art director** who makes creative design decisions for every slide. For EACH slide, ask: **"What visual would make this concept click fastest for the learner?"**
 
-You have a **4-tool visual palette** — choose based on what serves learning, not what's easiest:
+You have a **3-tool visual palette** — choose based on what serves learning, not what's easiest:
 
 - **Native PPTX shapes** — when the layout pattern itself IS the visual (stat cards, timelines, comparisons, icon grids). Editable Arabic text, proper RTL.
-- **SVG concept visualization** (via Gemini) — when a **meaningful diagram or visual metaphor** makes an abstract concept tangible. Examples: "5 pillars" as an actual building, "security layers" as layered shields, "innovation ecosystem" as connected growing elements. SVG is a PRIMARY visualization tool, not a last resort.
-- **AI-generated images** (via Nano Banana / Gemini) — when a **contextual illustration** adds real-world meaning. Not decoration — each image should help the learner visualize the concept in context.
-- **HTML Screenshot** (via Playwright) — when the visual must look like **real software UI** (app screens, dashboards, forms, portals). Primary tool for **شاشة توضيحية** in video scripts. Lazy-load `references/screenshot-gen.md` only when needed.
+- **AI-generated images** (via Nano Banana / Gemini) — when a **photorealistic or styled illustration** adds real-world meaning (scenario photo, textural background, stylized scene). Not for precise layouts or labeled diagrams.
+- **HTML+CSS Screenshot** (via Playwright) — for **any custom visual where you control the design**: diagrams, infographics, process flows, concept illustrations, activity mockups, question visuals, video scenes (شاشة توضيحية), UI screens. Write HTML → run screenshot script → pass as `image_path`. Lazy-load `references/screenshot-gen.md` when needed.
 
 Any slide can **combine tools**: an SVG concept diagram WITH an AI image. Think about **composition, whitespace, focal points, and pacing** — not just "which pattern to use."
 
@@ -105,7 +104,7 @@ from pptx_engine import LectureBuilder  # Interactive & PDF lectures
 
 All builders support AI image generation via `image_prompt` parameter. Priority: `image_path` > `image_prompt`. See `references/image-gen.md` for full API.
 
-**HTML Screenshot** (for شاشة توضيحية): Write HTML → run `scripts/screenshot_gen.py` → pass PNG as `image_path`. Full details: lazy-load `references/screenshot-gen.md` only when needed.
+**HTML+CSS Screenshot** (for any custom visual — diagrams, infographics, activity illustrations, video scenes, UI screens, etc.): Write HTML → run `scripts/screenshot_gen.py` → pass PNG as `image_path`. Full details: lazy-load `references/screenshot-gen.md` only when needed.
 
 ## Navigation — Read What You Need
 

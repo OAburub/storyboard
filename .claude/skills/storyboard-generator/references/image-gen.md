@@ -1,8 +1,8 @@
 # Image Generation API Reference
 
-## Method 4: HTML Screenshot (شاشة توضيحية / UI Mockups)
+## Method 3: HTML+CSS Screenshot (Any Custom Visual)
 
-For UI screens, app mockups, forms, and dashboards — **lazy-load `references/screenshot-gen.md`** for the full workflow. In brief:
+For any visual requiring precise design control — diagrams, infographics, process flows, activity illustrations, video scenes (شاشة توضيحية), question visuals, UI screens, and more — **lazy-load `references/screenshot-gen.md`** for the full workflow. In brief:
 
 ```bash
 # 1. Write HTML to: output/{PROJECT}/U{XX}/screenshots/{name}.html
