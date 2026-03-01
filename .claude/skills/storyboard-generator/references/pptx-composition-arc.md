@@ -306,45 +306,11 @@ If content requires more than 30 slides, split into two lectures.
 
 ## Part 6: Visual Tools
 
-### SVG vs Native PPTX
-
-Use **native PPTX shapes** when the layout pattern carries the visual meaning (stat cards show numbers, timelines show progression, comparisons show differences).
-
-Use **SVG concept visualization** (`use_svg=True`) when a visual metaphor or diagram helps the learner understand. Includes: visual metaphors, architecture diagrams, relationship maps, circular flows, transformation pipelines, complex processes.
-
-SVG is a **primary visualization tool**, not a last resort. Ask: "Would seeing this as a picture help the learner understand it faster?" If yes, use SVG.
+SVG is a **primary visualization tool**, not a last resort. Ask: "Would seeing this as a picture help the learner understand it faster?" If yes, use `use_svg=True`.
 
 **Note on Arabic text**: SVG text is rasterized to PNG. Keep labels short (1-3 words). Long Arabic text should be in native PPTX shapes alongside the SVG.
 
-### 3-Tool Palette by Slide Type
-
-| Slide Type | AI Image? | SVG Concept? | Why |
-|---|---|---|---|
-| Content slides | Yes (often) | Consider | Image illustrates; SVG if concept is abstract |
-| Section dividers | Optional | No | Decorative mood-setting |
-| Quiz slides | Optional | No | Visual stimulus for the question |
-| Stat cards | No | No | Numbers ARE the visual |
-| Process flows | No | Yes (if 5+ steps or metaphor helps) | SVG makes flow tangible |
-| Quote highlights | No | No | Text IS the visual |
-| Timelines | No | Consider | Timeline may benefit from illustrated milestones |
-| Icon grids | No | Consider (if items form a system) | SVG if items are interconnected |
-| Comparisons | No | Consider (if comparing systems) | SVG for visual side-by-side systems |
-| Cycle diagrams | No | Yes (always) | Circular layouts need SVG |
-
-### Visual Grammar + Engagement Effect
-
-| Visual Pattern | Information Effect | Engagement Effect | Best For |
-|---------------|-------------------|-------------------|----------|
-| `process_flow` | Shows sequence | Clarity → Competence | Teaching procedures |
-| `stat_cards` | Highlights numbers | Surprise → Curiosity | Hook slides, impact data |
-| `quote_highlight` | Expert insight | Credibility → Relatedness | Expert voice, inspiration |
-| `timeline` | Shows progression | Narrative → Story flow | History, project phases |
-| `comparison` | Contrasts two things | Distinction → Understanding | Differentiating concepts |
-| `icon_grid` | Organizes categories | Overview → Structure | Summarizing multiple items |
-| `cycle_diagram` | Shows recurring process | System thinking → Depth | Feedback loops, cycles |
-| `concept_visual` | SVG/AI visualization | "Aha!" → Discovery | Abstract concepts |
-
-**Choose visual patterns that create EMOTIONAL connection, not just information clarity.**
+For the full visual pattern selection guide (which pattern fits which content relationship), see `visual-grammar.md`.
 
 ---
 
@@ -377,40 +343,11 @@ SVG is a **primary visualization tool**, not a last resort. Ask: "Would seeing t
 
 ---
 
-## Part 8: Growth Mindset Feedback
+## Part 8: Growth Mindset Feedback & Gagne's Enhancement
 
-### Quiz Feedback Language
+For growth mindset feedback language (quiz feedback, instructional language), see `educational-standards.md` Section 5.
 
-| Situation | Growth Mindset (use) | Fixed Mindset (avoid) |
-|-----------|---------------------|----------------------|
-| Correct | "Your reasoning is solid. You identified [X] because [Y]." | "Correct!" |
-| Correct on retry | "Persistence pays off! You adjusted your approach and found it." | "Finally correct." |
-| Incorrect | "Not quite yet. The key insight is [X]. Try thinking about [Y]." | "Wrong. The answer is B." |
-| Partial | "You're on the right track — you got [correct part]. Now consider [missing part]." | "Partially correct." |
-
-### Instructional Language
-
-| Purpose | Engagement Language | Avoid |
-|---------|--------------------|-----------------------------|
-| Introducing difficulty | "This next concept challenges even experts. Let's work through it." | "This is basic." |
-| Transitions | "Now that you understand X, you're ready for the next level." | "Moving on to the next topic." |
-| Effort acknowledgment | "Working through this shows real commitment to your growth." | "You should find this easy." |
-
----
-
-## Part 9: Gagne's 9 Events — Engagement Enhancement
-
-| Gagne's Event | Standard | Engagement-Enhanced |
-|---------------|----------|---------------------|
-| 1. Gain Attention | Show title slide | Information Gap: surprising stat, provocative question |
-| 2. State Objectives | Bullet list | Frame as benefit: "After this, you'll be able to..." |
-| 3. Recall Prior | "You may already know..." | Quick quiz activating prior knowledge |
-| 4. Present Content | Slides with info | Visual metaphors, stories, progressive reveal |
-| 5. Provide Guidance | Worked examples | "Think like an expert" — show expert reasoning |
-| 6. Elicit Practice | Quiz at the end | Distributed practice (the 3-4 slide rule) |
-| 7. Provide Feedback | "Correct/Incorrect" | Growth mindset: specific, encouraging, next-step |
-| 8. Assess Performance | Final test | Culminating scenario integrating all concepts |
-| 9. Enhance Retention | Summary bullets | Transfer prompt + visual summary + next-unit tease |
+For Gagne's 9 Events engagement enhancements, see `educational-standards.md` Section 2.
 
 ---
 
@@ -450,41 +387,9 @@ If yes: add visual variety, add depth (background wash + shadows), add whitespac
 
 ---
 
-## Part 12: Combined Quality Checklist
+## Part 12: Quality Checklist
 
-### Narrative & Motivation (all must pass)
-- [ ] Opening creates curiosity or urgency (not "Welcome to Unit X")
-- [ ] 5-act narrative arc planned before building
-- [ ] At least one "aha moment" designed into the lecture
-- [ ] Culminating challenge near end where learner proves mastery without scaffolding
-- [ ] Closing connects to real-world application AND teases next unit
-
-### SDT Compliance (at least 4 of 6)
-- [ ] Autonomy: At least one choice point or branching path
-- [ ] Autonomy: Language is invitational, not controlling
-- [ ] Competence: Difficulty increases progressively
-- [ ] Competence: Feedback is specific and growth-oriented
-- [ ] Relatedness: At least one real-world scenario from learner's context
-- [ ] Relatedness: At least one "Why This Matters" block
-
-### Pacing & Interactions (all must pass)
-- [ ] No more than 3-4 content slides without an interaction
-- [ ] At least 20% of slides are interactive
-- [ ] No same visual pattern on consecutive slides
-- [ ] Section divider every 4-6 content slides
-- [ ] Visual variety: mix stat_cards, comparison, process_flow (not all content_slide)
-
-### Visual Design (all must pass)
-- [ ] Composition Table completed and approved before building
-- [ ] 4-8 SVG visuals planned for abstract concepts
-- [ ] 8-12 AI images for contextual illustration
-- [ ] Squint Test passes: visual hierarchy clear at a glance
-- [ ] No generic PowerPoint slide patterns
-
-### Storyline Readiness
-- [ ] Every slide has named shapes in speaker notes
-- [ ] Interaction slides have full Storyline blueprints (layers, states, triggers, variables)
-- [ ] A Storyline developer could build from notes without asking questions
+For the full pre-delivery quality checklist (planning, visual, RTL, naming, notes, images, pacing, file integrity), see `quality-checklist.md`.
 
 ---
 

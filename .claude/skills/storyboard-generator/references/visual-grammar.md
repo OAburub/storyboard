@@ -248,15 +248,7 @@ When designing a slide, follow this process:
 
 ## Pacing Rules
 
-- **Never** use the same visual pattern on 2 consecutive slides
-- After 2-3 dense information slides, insert a **breathing slide** (quote, reflection prompt, or visual-only)
-- The lecture should follow a narrative arc:
-  - **Hook** (1-2 slides): Surprising stat, question, or visual metaphor
-  - **Build-up** (3-5 slides): Core concepts with varied patterns
-  - **Key insight** (1 slide): The "aha" moment — use stat card or visual metaphor
-  - **Practice** (2-3 slides): Quiz, drag-drop, scenario
-  - **Summary** (1 slide): Visual recap using a different pattern than the content used
-- Target: **maximum 30% of slides should be card/bullet layouts**. The rest should use richer patterns.
+For detailed pacing rules (3-4 slide rule, breathing rule, variety rule, section rule, cognitive load), see `pptx-composition-arc.md` Part 5.
 
 ---
 

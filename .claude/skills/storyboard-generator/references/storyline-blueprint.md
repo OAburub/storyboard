@@ -12,8 +12,6 @@ The PPTX is an **input for Storyline 360**, not a standalone presentation. Every
 - Conditions (show X if score > 80, enable next when all visited)
 - Audio sync (narration tied to timeline cues)
 
-Our PPTX must make this developer's job as easy as possible.
-
 ## Speaker Notes Format
 
 Every slide's speaker notes use this exact structure:
@@ -54,64 +52,24 @@ Conditions:
 
 ### Static Content Slide
 
+Simplest form — just base layer, audio trigger, narrator script:
+
 ```
-=== STORYLINE BLUEPRINT ===
-
-Slide Type: static-content
-Duration: learner-paced
-Audio: narration_s[XX].mp3
-
-Layers:
-- base (default visible)
-
-Triggers:
-1. Play media 'narration_s[XX]' when timeline starts
-
-=== NARRATOR SCRIPT ===
-[Arabic narration text]
+Slide Type: static-content | Duration: learner-paced | Audio: narration_s[XX].mp3
+Layers: base (default visible)
+Triggers: 1. Play media 'narration_s[XX]' when timeline starts
 ```
 
 ### Click-to-Reveal (Tabs / Hotspots)
 
-```
-=== STORYLINE BLUEPRINT ===
+Like quiz but with tab buttons instead of options. Key additions:
+- One layer per revealable content panel (`detail_1`, `detail_2`, etc.)
+- Tab states: `[Normal, Hover, Visited]`
+- `clickCount` variable tracks tabs visited
+- Completion layer shown when `clickCount >= N`
+- Enable Next button when enough tabs visited
 
-Slide Type: click-reveal
-Duration: learner-paced
-Audio: narration_s[XX].mp3
-
-Layers:
-- base (default visible) — contains tab buttons
-- detail_1: [content description for tab 1]
-- detail_2: [content description for tab 2]
-- detail_3: [content description for tab 3]
-- completion: "أحسنت! لقد استكشفت جميع المحتوى" (shown when all tabs visited)
-
-States:
-- btn_tab1: [Normal, Hover, Visited]
-- btn_tab2: [Normal, Hover, Visited]
-- btn_tab3: [Normal, Hover, Visited]
-
-Triggers:
-1. Show layer 'detail_1' when user clicks 'btn_tab1'
-   - Set state of 'btn_tab1' to 'Visited'
-   - Add 1 to 'clickCount'
-2. Show layer 'detail_2' when user clicks 'btn_tab2'
-   - Set state of 'btn_tab2' to 'Visited'
-   - Add 1 to 'clickCount'
-3. Show layer 'detail_3' when user clicks 'btn_tab3'
-   - Set state of 'btn_tab3' to 'Visited'
-   - Add 1 to 'clickCount'
-4. Show layer 'completion' when 'clickCount' >= 3
-
-Variables:
-- clickCount (Number, default 0): tracks revealed tabs
-
-=== NARRATOR SCRIPT ===
-[Arabic narration — "اضغط على كل علامة تبويب لاستكشاف المحتوى"]
-```
-
-### Quiz (Multiple Choice)
+### Quiz (Multiple Choice) — Full Template
 
 ```
 === STORYLINE BLUEPRINT ===
@@ -158,44 +116,15 @@ Correct Answer: opt_[N] — [answer text]
 
 ### Drag-and-Drop
 
-```
-=== STORYLINE BLUEPRINT ===
+Like quiz but with drag items and drop zones. Key additions:
+- Item states: `[Normal, Drop Correct, Drop Incorrect]`
+- Zone states: `[Normal, Hover, Accepted]`
+- Triggers: correct placement → `Drop Correct` state; wrong → return to start
+- `dragAttempts` and `correctPlacements` variables
+- Drag mapping in notes: `item_1 → zone_[target]: [explanation]`
+- Allow N attempts before showing correct answers
 
-Slide Type: drag-drop
-Duration: learner-paced
-Audio: narration_s[XX].mp3
-
-Layers:
-- base (default visible) — drag items + drop zones
-- feedback_correct: "أحسنت! ترتيب صحيح"
-- feedback_incorrect: "حاول مرة أخرى — راجع الترتيب"
-
-States:
-- item_1: [Normal, Drop Correct, Drop Incorrect]
-- item_2: [Normal, Drop Correct, Drop Incorrect]
-- zone_1: [Normal, Hover, Accepted]
-- zone_2: [Normal, Hover, Accepted]
-
-Triggers:
-1. Set state of 'zone_[N]' to 'Accepted' when correct item dropped
-2. Set state of 'item_[N]' to 'Drop Correct' when dropped on correct zone
-3. Set state of 'item_[N]' to 'Drop Incorrect' and return to start when dropped on wrong zone
-4. Show 'feedback_correct' when all items correctly placed
-5. Allow 3 attempts before showing correct answers
-
-Drag Mapping:
-- item_1 → zone_[target]: [explanation]
-- item_2 → zone_[target]: [explanation]
-
-Variables:
-- dragAttempts (Number, default 0): total attempts
-- correctPlacements (Number, default 0): items correctly placed
-
-=== NARRATOR SCRIPT ===
-[Arabic instruction — "اسحب كل عنصر إلى المكان المناسب"]
-```
-
-### Branching Scenario
+### Branching Scenario — Full Template
 
 ```
 === STORYLINE BLUEPRINT ===
@@ -238,28 +167,13 @@ Variables:
 
 ### Slider / Rating
 
-```
-=== STORYLINE BLUEPRINT ===
-
-Slide Type: slider
-Duration: learner-paced
-
-Layers:
-- base (default visible) — slider + dynamic feedback area
-
-Triggers:
-1. Update 'txt_feedback' text based on 'sliderValue' ranges:
-   - 0-3: [low range feedback in Arabic]
-   - 4-7: [mid range feedback in Arabic]
-   - 8-10: [high range feedback in Arabic]
-
-Variables:
-- sliderValue (Number, default 5): current slider position
-```
+Simplest interaction — just a slider variable and conditional text feedback:
+- `sliderValue` variable (Number, default 5)
+- Triggers update `txt_feedback` text based on value ranges (0-3, 4-7, 8-10)
 
 ## Shape Naming Convention
 
-Every shape in the PPTX MUST be named meaningfully. The Storyline developer uses these names to set up triggers without renaming 50 objects per slide.
+Every shape in the PPTX MUST be named meaningfully. The Storyline developer uses these names to set up triggers.
 
 | Prefix | Element | Examples |
 |---|---|---|
@@ -284,11 +198,10 @@ Every slide MUST have an off-screen textbox named `title` containing the Arabic 
 
 - Position: x=-2", y=0" (off-screen to the right in RTL)
 - Size: 1" x 0.3"
-- Content: Arabic title for Storyline's navigation panel
 
 ## Import Instructions
 
-The title slide's speaker notes must include Storyline import instructions:
+The title slide's speaker notes must include:
 
 ```
 === STORYLINE IMPORT INSTRUCTIONS ===
@@ -302,17 +215,12 @@ The title slide's speaker notes must include Storyline import instructions:
    c. Check shape names in Timeline panel
    d. Set up triggers following the blueprint in each slide's notes
 
-Font Requirements:
-- Tajawal Regular (400)
-- Tajawal Bold (700)
-- Tajawal ExtraBold (800)
+Font Requirements: Tajawal Regular (400), Bold (700), ExtraBold (800)
 
 QA Checklist:
 □ All text is right-aligned (RTL)
 □ Shape names match blueprint specifications
 □ Fonts render correctly (Tajawal installed)
-□ Section tags visible in header zone
-□ Progress dots update per section
 □ All layers created per blueprint
 □ Quiz scoring variables initialized
 □ Audio files linked to narration scripts
@@ -320,9 +228,9 @@ QA Checklist:
 
 ## Audio Narration
 
-The `NARRATOR SCRIPT` section in each slide's notes is the **exact text** to be recorded as audio. Rules:
+The `NARRATOR SCRIPT` section is the **exact text** to be recorded as audio. Rules:
 - Written in formal academic Arabic
-- No tashkeel/diacritics (the narrator reads naturally)
+- No tashkeel/diacritics
 - Each slide's narration = 15-30 seconds
 - Reference the slide content ("كما ترون في الرسم البياني...")
 - Pacing cues in brackets: [وقفة قصيرة], [تأكيد], [انتقال]
