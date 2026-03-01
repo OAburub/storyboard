@@ -1,0 +1,49 @@
+{
+  "projectCode": "TEST3",
+  "projectName": "فيديو تعليمي — تكوّن المطر",
+  "clientName": "مشروع تجريبي",
+  "institution": "مدرسة ابتدائية",
+  "designerName": "",
+  "branding": {
+    "logo": "",
+    "header": ""
+  },
+  "units": [
+    {
+      "number": 1,
+      "name": "كيف يتكوّن المطر؟",
+      "contentSource": "User-provided topic description",
+      "status": "in_progress",
+      "storyboards": [
+        { "type": "video", "topic": "كيف يتكوّن المطر؟", "status": "pending" }
+      ]
+    }
+  ],
+  "testConfig": {
+    "preTestQuestions": null,
+    "postTestQuestions": null,
+    "courseExamQuestions": null
+  },
+  "visualDirection": {
+    "style": "cheerful-educational",
+    "colorPalette": ["#0277BD", "#4FC3F7", "#FFD54F", "#66BB6A", "#ECEFF1"],
+    "negativeRules": [
+      "no human faces or facial features",
+      "no Arabic text or writing inside images",
+      "no dark or scary imagery — keep it bright and cheerful",
+      "no complex scientific diagrams — keep visuals simple for children"
+    ],
+    "promptPrefix": "Child-friendly educational illustration for 4th graders about weather and rain.",
+    "promptSuffix": "Bright cheerful colors, rounded cartoon style, simple shapes, sky blue and sunny yellow palette, white fluffy clouds, playful educational tone, no text in image",
+    "defaultAspectRatios": {
+      "content_slide": "16:9",
+      "card_thumbnail": "1:1",
+      "section_bg": "16:9",
+      "two_column_header": "3:2",
+      "closing": "16:9",
+      "quiz": "1:1",
+      "scene": "16:9"
+    },
+    "defaultResolution": "2K"
+  }
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Tajawal', Arial, sans-serif;
+    width: 1280px; height: 720px; overflow: hidden;
+    background: linear-gradient(180deg, #0a1628 0%, #1a3a6e 25%, #2563a8 50%, #5ba3d9 70%, #7ec8e3 85%, #a8dff0 100%);
+    position: relative;
+  }
+
+  /* Sun */
+  .sun {
+    position: absolute;
+    top: 40px; left: 80px;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, #fff176, #ffd600 50%, #ff8f00 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 60px 30px rgba(255, 214, 0, 0.4), 0 0 120px 60px rgba(255, 152, 0, 0.2);
+  }
+  .sun-rays {
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 180px; height: 180px;
+  }
+  .ray {
+    position: absolute;
+    width: 4px;
+    height: 50px;
+    background: linear-gradient(to bottom, #ffd600, transparent);
+    left: 50%; top: 0;
+    transform-origin: bottom center;
+    border-radius: 2px;
+  }
+
+  /* Water body */
+  .water {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, #1565c0 0%, #0d47a1 40%, #082866 100%);
+    border-top: 3px solid rgba(255,255,255,0.3);
+  }
+  .water-label {
+    position: absolute;
+    top: 20px; right: 40px;
+    color: rgba(255,255,255,0.9);
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .wave {
+    position: absolute;
+    top: -8px; left: 0; right: 0;
+    height: 18px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+  }
+
+  /* Vapor arrows */
+  .vapor-group {
+    position: absolute;
+    bottom: 180px;
+    display: flex;
+    gap: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .vapor-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    animation: float 2.5s ease-in-out infinite;
+  }
+  .vapor-arrow:nth-child(2) { animation-delay: 0.4s; }
+  .vapor-arrow:nth-child(3) { animation-delay: 0.8s; }
+  .vapor-arrow:nth-child(4) { animation-delay: 1.2s; }
+  .vapor-arrow:nth-child(5) { animation-delay: 1.6s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(-20px); opacity: 1; }
+  }
+  .vapor-dot {
+    width: 12px; height: 12px;
+    background: rgba(180, 230, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(180,230,255,0.8);
+  }
+  .vapor-dot.small { width: 8px; height: 8px; opacity: 0.7; }
+  .vapor-dot.tiny { width: 5px; height: 5px; opacity: 0.4; }
+
+  /* Labels */
+  .label-card {
+    position: absolute;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+    padding: 12px 20px;
+    color: white;
+    text-align: center;
+  }
+  .label-card .ar { font-size: 20px; font-weight: 700; }
+  .label-card .sub { font-size: 14px; opacity: 0.8; margin-top: 4px; }
+
+  .lbl-sun { top: 50px; left: 240px; }
+  .lbl-heat { top: 240px; left: 60px; }
+  .lbl-vapor { top: 340px; left: 50%; transform: translateX(-50%); }
+  .lbl-water { bottom: 110px; right: 60px; }
+
+  /* Title */
+  .title {
+    position: absolute;
+    top: 30px; right: 50px;
+    color: white;
+    font-size: 38px;
+    font-weight: 800;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+  .step-badge {
+    position: absolute;
+    top: 90px; right: 50px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    font-size: 16px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+
+  /* Heat arrows from sun to water */
+  .heat-beam {
+    position: absolute;
+    top: 170px; left: 130px;
+    width: 3px; height: 300px;
+    background: linear-gradient(to bottom, rgba(255,200,0,0.8), transparent);
+    transform: rotate(20deg);
+    transform-origin: top center;
+  }
+  .heat-beam:nth-child(2) { transform: rotate(30deg); }
+  .heat-beam:nth-child(3) { transform: rotate(10deg); }
+</style>
+</head>
+<body>
+  <!-- Sun -->
+  <div class="sun">
+    <div class="sun-rays">
+      <div class="ray" style="transform: rotate(0deg) translateX(-50%)"></div>
+      <div class="ray" style="transform: rotate(45deg) translateX(-50%)"></div>
+      <div class="ray" style="transform: rotate(90deg) translateX(-50%)"></div>
+      <div class="ray" style="transform: rotate(135deg) translateX(-50%)"></div>
+      <div class="ray" style="transform: rotate(180deg) translateX(-50%)"></div>
+      <div class="ray" style="transform: rotate(225deg) translateX(-50%)"></div>
+      <div class="ray" style="transform: rotate(270deg) translateX(-50%)"></div>
+      <div class="ray" style="transform: rotate(315deg) translateX(-50%)"></div>
+    </div>
+  </div>
+
+  <!-- Heat beams -->
+  <div class="heat-beam"></div>
+  <div class="heat-beam"></div>
+  <div class="heat-beam"></div>
+
+  <!-- Title -->
+  <div class="title">المشهد الأول: البخر</div>
+  <div class="step-badge">المرحلة ١ من ٤</div>
+
+  <!-- Labels -->
+  <div class="label-card lbl-sun">
+    <div class="ar">الشمس ☀️</div>
+    <div class="sub">مصدر الطاقة الحرارية</div>
+  </div>
+  <div class="label-card lbl-heat">
+    <div class="ar">الحرارة</div>
+    <div class="sub">تسخين سطح الماء</div>
+  </div>
+
+  <!-- Vapor rising -->
+  <div class="vapor-group">
+    <div class="vapor-arrow">
+      <div class="vapor-dot tiny"></div>
+      <div class="vapor-dot small"></div>
+      <div class="vapor-dot"></div>
+    </div>
+    <div class="vapor-arrow">
+      <div class="vapor-dot tiny"></div>
+      <div class="vapor-dot small"></div>
+      <div class="vapor-dot"></div>
+    </div>
+    <div class="vapor-arrow">
+      <div class="vapor-dot tiny"></div>
+      <div class="vapor-dot small"></div>
+      <div class="vapor-dot"></div>
+    </div>
+    <div class="vapor-arrow">
+      <div class="vapor-dot tiny"></div>
+      <div class="vapor-dot small"></div>
+      <div class="vapor-dot"></div>
+    </div>
+    <div class="vapor-arrow">
+      <div class="vapor-dot tiny"></div>
+      <div class="vapor-dot small"></div>
+      <div class="vapor-dot"></div>
+    </div>
+  </div>
+  <div class="label-card lbl-vapor">
+    <div class="ar">بخار الماء يصعد إلى الأعلى</div>
+  </div>
+
+  <!-- Water -->
+  <div class="water">
+    <div class="wave"></div>
+    <div class="water-label">البحر والمحيطات</div>
+  </div>
+  <div class="label-card lbl-water">
+    <div class="ar">المسطحات المائية</div>
+    <div class="sub">بحار، أنهار، بحيرات</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Tajawal', Arial, sans-serif;
+    direction: rtl;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #4FC3F7 0%, #81D4FA 40%, #B3E5FC 70%, #E1F5FE 100%);
+    color: #0D47A1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Sun */
+  .sun {
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #FFD54F 40%, #FFCA28 70%, transparent 72%);
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(255, 213, 79, 0.6), 0 0 120px rgba(255, 213, 79, 0.3);
+  }
+  .sun::after {
+    content: '';
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(255,213,79,0.3) 30%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  /* Clouds */
+  .cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  }
+  .cloud::before, .cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+  }
+  .cloud-1 {
+    width: 200px; height: 60px;
+    top: 80px; right: 100px;
+  }
+  .cloud-1::before { width: 80px; height: 80px; top: -40px; right: 30px; }
+  .cloud-1::after { width: 100px; height: 100px; top: -50px; right: 80px; }
+  .cloud-2 {
+    width: 160px; height: 50px;
+    top: 140px; right: 500px;
+  }
+  .cloud-2::before { width: 60px; height: 60px; top: -30px; right: 25px; }
+  .cloud-2::after { width: 80px; height: 80px; top: -40px; right: 60px; }
+  .cloud-3 {
+    width: 180px; height: 55px;
+    top: 60px; left: 250px;
+  }
+  .cloud-3::before { width: 70px; height: 70px; top: -35px; right: 30px; }
+  .cloud-3::after { width: 90px; height: 90px; top: -45px; right: 70px; }
+
+  /* Rain drops */
+  .raindrop {
+    position: absolute;
+    width: 12px;
+    height: 20px;
+    background: linear-gradient(180deg, #4FC3F7, #0288D1);
+    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+    opacity: 0.7;
+  }
+  .drop-1 { bottom: 180px; right: 200px; transform: rotate(-5deg); }
+  .drop-2 { bottom: 220px; right: 320px; transform: rotate(3deg); }
+  .drop-3 { bottom: 150px; right: 450px; transform: rotate(-8deg); }
+  .drop-4 { bottom: 200px; left: 300px; transform: rotate(5deg); }
+  .drop-5 { bottom: 160px; left: 180px; transform: rotate(-3deg); }
+  .drop-6 { bottom: 240px; right: 600px; transform: rotate(7deg); }
+  .drop-7 { bottom: 130px; right: 150px; width: 10px; height: 16px; }
+  .drop-8 { bottom: 190px; left: 400px; width: 10px; height: 16px; transform: rotate(-6deg); }
+
+  /* Title area */
+  .title-container {
+    text-align: center;
+    z-index: 10;
+    margin-top: 40px;
+  }
+  .main-title {
+    font-size: 56px;
+    font-weight: 800;
+    color: #0D47A1;
+    text-shadow: 0 3px 12px rgba(13,71,161,0.15);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .question {
+    font-size: 36px;
+    font-weight: 700;
+    color: #01579B;
+    background: rgba(255,255,255,0.75);
+    padding: 16px 48px;
+    border-radius: 30px;
+    display: inline-block;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .subtitle {
+    font-size: 22px;
+    font-weight: 500;
+    color: #0277BD;
+    margin-top: 20px;
+    opacity: 0.85;
+  }
+
+  /* Ground */
+  .ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(180deg, #66BB6A 0%, #43A047 100%);
+    border-radius: 50% 50% 0 0 / 30px 30px 0 0;
+  }
+  .ground::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(180deg, transparent, rgba(102,187,106,0.5));
+  }
+</style>
+</head>
+<body>
+  <div class="sun"></div>
+  <div class="cloud cloud-1"></div>
+  <div class="cloud cloud-2"></div>
+  <div class="cloud cloud-3"></div>
+
+  <div class="raindrop drop-1"></div>
+  <div class="raindrop drop-2"></div>
+  <div class="raindrop drop-3"></div>
+  <div class="raindrop drop-4"></div>
+  <div class="raindrop drop-5"></div>
+  <div class="raindrop drop-6"></div>
+  <div class="raindrop drop-7"></div>
+  <div class="raindrop drop-8"></div>
+
+  <div class="title-container">
+    <div class="main-title">كيف يتكوّن المطر؟</div>
+    <div class="question">من أين تأتي قطرات المطر؟ 🌧️</div>
+    <div class="subtitle">هيا نكتشف معًا رحلة الماء في السماء!</div>
+  </div>
+
+  <div class="ground"></div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head><meta charset="UTF-8">
+<style>* { box-sizing: border-box; margin: 0; padding: 0; } body { width: 1280px; height: 720px; overflow: hidden; }</style>
+</head>
+<body>
+<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1565C0"/>
+      <stop offset="60%" style="stop-color:#42A5F5"/>
+      <stop offset="100%" style="stop-color:#B3E5FC"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0288D1"/>
+      <stop offset="100%" style="stop-color:#01579B"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50"/>
+      <stop offset="100%" style="stop-color:#2E7D32"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1280" height="720" fill="url(#sky)"/>
+
+  <!-- Ground strip -->
+  <rect x="0" y="630" width="1280" height="90" fill="url(#ground)" rx="0"/>
+
+  <!-- Water body (lake/sea) -->
+  <path d="M0,540 C160,515 360,565 560,540 C760,515 1000,565 1280,540 L1280,630 L0,630 Z" fill="url(#water)"/>
+  <!-- Water shimmer -->
+  <path d="M80,570 Q200,560 320,570" stroke="white" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M400,585 Q520,575 640,585" stroke="white" stroke-width="2" fill="none" opacity="0.25"/>
+  <path d="M720,568 Q840,558 960,568" stroke="white" stroke-width="2" fill="none" opacity="0.2"/>
+
+  <!-- Sun (large, glowing) -->
+  <circle cx="1120" cy="110" r="95" fill="#FDD835" filter="url(#glow)" opacity="0.95"/>
+  <circle cx="1120" cy="110" r="78" fill="#FFEE58"/>
+  <!-- Sun rays -->
+  <g stroke="#FDD835" stroke-width="7" stroke-linecap="round" opacity="0.6">
+    <line x1="1120" y1="-5" x2="1120" y2="12"/>
+    <line x1="1120" y1="208" x2="1120" y2="225"/>
+    <line x1="875" y1="110" x2="892" y2="110"/>
+    <line x1="1348" y1="110" x2="1365" y2="110"/>
+    <line x1="948" y1="28" x2="960" y2="40"/>
+    <line x1="1280" y1="28" x2="1292" y2="40"/>
+    <line x1="948" y1="192" x2="960" y2="180"/>
+    <line x1="1280" y1="192" x2="1292" y2="180"/>
+    <line x1="909" y1="68" x2="923" y2="75"/>
+    <line x1="1317" y1="68" x2="1331" y2="75"/>
+    <line x1="909" y1="152" x2="923" y2="145"/>
+    <line x1="1317" y1="152" x2="1331" y2="145"/>
+  </g>
+
+  <!-- Heat rays from sun to water -->
+  <g stroke="#FF8F00" stroke-width="3" stroke-dasharray="18,10" opacity="0.55">
+    <line x1="1050" y1="200" x2="780" y2="510"/>
+    <line x1="1085" y1="205" x2="840" y2="510"/>
+    <line x1="1120" y1="205" x2="900" y2="510"/>
+    <line x1="1155" y1="205" x2="960" y2="510"/>
+    <line x1="1190" y1="200" x2="1020" y2="510"/>
+  </g>
+
+  <!-- Vapor columns (rising bubbles) -->
+  <!-- Column A -->
+  <g fill="#E1F5FE">
+    <circle cx="220" cy="520" r="20" opacity="0.9"/>
+    <circle cx="205" cy="455" r="16" opacity="0.8"/>
+    <circle cx="222" cy="393" r="13" opacity="0.7"/>
+    <circle cx="210" cy="337" r="10" opacity="0.6"/>
+    <circle cx="218" cy="288" r="7" opacity="0.5"/>
+    <circle cx="214" cy="248" r="5" opacity="0.4"/>
+    <polygon points="214,208 200,238 228,238" opacity="0.6"/>
+  </g>
+  <!-- Column B -->
+  <g fill="#B3E5FC">
+    <circle cx="430" cy="525" r="20" opacity="0.85"/>
+    <circle cx="415" cy="460" r="16" opacity="0.75"/>
+    <circle cx="432" cy="398" r="13" opacity="0.65"/>
+    <circle cx="420" cy="342" r="10" opacity="0.55"/>
+    <circle cx="428" cy="293" r="7" opacity="0.45"/>
+    <circle cx="424" cy="253" r="5" opacity="0.35"/>
+    <polygon points="424,213 410,243 438,243" opacity="0.55"/>
+  </g>
+  <!-- Column C -->
+  <g fill="#E1F5FE">
+    <circle cx="640" cy="520" r="20" opacity="0.8"/>
+    <circle cx="625" cy="455" r="16" opacity="0.7"/>
+    <circle cx="642" cy="393" r="13" opacity="0.6"/>
+    <circle cx="630" cy="337" r="10" opacity="0.5"/>
+    <circle cx="638" cy="288" r="7" opacity="0.4"/>
+    <circle cx="634" cy="248" r="5" opacity="0.3"/>
+    <polygon points="634,208 620,238 648,238" opacity="0.5"/>
+  </g>
+  <!-- Column D (faint) -->
+  <g fill="#B3E5FC">
+    <circle cx="820" cy="523" r="17" opacity="0.6"/>
+    <circle cx="808" cy="463" r="13" opacity="0.5"/>
+    <circle cx="822" cy="405" r="10" opacity="0.4"/>
+    <circle cx="812" cy="352" r="7" opacity="0.3"/>
+    <polygon points="814,310 802,335 826,335" opacity="0.35"/>
+  </g>
+
+  <!-- Info box -->
+  <rect x="860" y="310" width="360" height="200" rx="18" fill="#0D47A1" fill-opacity="0.55" stroke="#42A5F5" stroke-width="1.5"/>
+  <text x="1040" y="365" font-size="48" font-weight="bold" fill="white" text-anchor="middle" direction="rtl">التبخُّر</text>
+  <line x1="880" y1="380" x2="1200" y2="380" stroke="#42A5F5" stroke-width="1" opacity="0.5"/>
+  <text x="1040" y="415" font-size="22" fill="#B3E5FC" text-anchor="middle" direction="rtl">الشمس تسخّن سطح الماء</text>
+  <text x="1040" y="448" font-size="20" fill="#90CAF9" text-anchor="middle" direction="rtl">فيتحوّل إلى بخار يرتفع</text>
+  <text x="1040" y="490" font-size="18" fill="#64B5F6" text-anchor="middle" direction="rtl">⬆  بخار الماء يصعد نحو السماء</text>
+
+  <!-- Water label -->
+  <text x="130" y="598" font-size="26" font-weight="bold" fill="white" text-anchor="middle" direction="rtl">الماء</text>
+
+  <!-- Vapor label -->
+  <text x="345" y="178" font-size="22" fill="#E1F5FE" text-anchor="middle" direction="rtl">↑ بخار الماء</text>
+
+  <!-- Sun label -->
+  <text x="1120" y="235" font-size="22" fill="#FDD835" text-anchor="middle" direction="rtl">الشمس</text>
+</svg>
+</body>
+</html>

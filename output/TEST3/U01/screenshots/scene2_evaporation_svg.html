@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1280px; height: 720px; overflow: hidden; background: #F8F9FA; }
+  svg { width: 1280px; height: 720px; display: block; }
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+    <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#F8F9FA"/>
+            <stop offset="100%" stop-color="#EEF2F7"/>
+        </linearGradient>
+        <linearGradient id="gradSun" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFB74D"/>
+            <stop offset="100%" stop-color="#F57C00"/>
+        </linearGradient>
+        <linearGradient id="gradSea" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#29B6F6"/>
+            <stop offset="100%" stop-color="#01579B"/>
+        </linearGradient>
+        <linearGradient id="gradVapor" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4DB6AC"/>
+            <stop offset="100%" stop-color="#00695C"/>
+        </linearGradient>
+        <linearGradient id="gradAir" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#6A96C8"/>
+            <stop offset="100%" stop-color="#385E8A"/>
+        </linearGradient>
+        <linearGradient id="gradCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#f0f6fa"/>
+        </linearGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="8" stdDeviation="6" flood-opacity="0.12" flood-color="#023d61"/>
+        </filter>
+        <filter id="shadowLight" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.08" flood-color="#000000"/>
+        </filter>
+        <marker id="arrow1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#F57C00" />
+        </marker>
+        <marker id="arrow2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#01579B" />
+        </marker>
+        <marker id="arrow3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#00695C" />
+        </marker>
+        <marker id="arrow4" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#385E8A" />
+        </marker>
+        <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="#0277BD" opacity="0.04"/>
+        </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#bgGrad)" />
+    <rect width="100%" height="100%" fill="url(#dots)" />
+    <circle cx="150" cy="120" r="300" fill="#4FC3F7" opacity="0.03" />
+    <circle cx="1100" cy="650" r="400" fill="#FF9800" opacity="0.02" />
+    <circle cx="640" cy="400" r="340" fill="none" stroke="#0277BD" stroke-width="1" opacity="0.04" stroke-dasharray="8 8" />
+    <g opacity="0.6">
+        <circle cx="480" cy="260" r="4" fill="#009688" opacity="0.3"/>
+        <circle cx="510" cy="230" r="7" fill="#009688" opacity="0.15"/>
+        <circle cx="440" cy="300" r="3" fill="#009688" opacity="0.4"/>
+        <circle cx="820" cy="270" r="6" fill="#FF9800" opacity="0.2"/>
+        <circle cx="860" cy="220" r="4" fill="#FF9800" opacity="0.3"/>
+    </g>
+    <g transform="translate(640, 65)">
+        <rect x="-240" y="-35" width="480" height="60" rx="30" fill="#ffffff" filter="url(#shadowLight)" />
+        <text x="0" y="5" font-family="Tajawal, Arial, sans-serif" font-size="26" font-weight="bold" fill="#0277BD" text-anchor="middle" direction="rtl">التبخر — الشمس تسخّن الماء</text>
+    </g>
+    <g fill="none" stroke-width="5" stroke-linecap="round">
+        <path d="M 862.16 340.47 A 230 230 0 0 0 726.16 186.75" stroke="#F57C00" marker-end="url(#arrow1)" />
+        <path d="M 553.84 186.75 A 230 230 0 0 0 417.84 340.47" stroke="#01579B" marker-end="url(#arrow2)" />
+        <path d="M 417.84 459.53 A 230 230 0 0 0 553.84 613.25" stroke="#00695C" marker-end="url(#arrow3)" />
+        <path d="M 726.16 613.25 A 230 230 0 0 0 862.16 459.53" stroke="#385E8A" marker-end="url(#arrow4)" />
+    </g>
+    <g font-family="Tajawal, Arial, sans-serif">
+        <g transform="translate(795, 362)">
+            <rect width="150" height="76" rx="14" fill="url(#gradSun)" filter="url(#shadow)" />
+            <g transform="translate(35, 38)">
+                <circle cx="0" cy="0" r="10" fill="none" stroke="#FFD54F" stroke-width="2.5"/>
+                <path d="M 0 -15 L 0 -18 M 0 15 L 0 18 M -15 0 L -18 0 M 15 0 L 18 0 M -10 -10 L -12 -12 M 10 10 L 12 12 M 10 -10 L 12 -12 M -10 10 L -12 12" stroke="#FFD54F" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <text x="130" y="32" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="end" direction="rtl">الشمس</text>
+            <text x="130" y="54" font-size="12" font-weight="normal" fill="#ffffff" opacity="0.9" text-anchor="end" direction="rtl">تسخن الماء</text>
+        </g>
+        <g transform="translate(565, 132)">
+            <rect width="150" height="76" rx="14" fill="url(#gradSea)" filter="url(#shadow)" />
+            <g transform="translate(35, 38)">
+                <path d="M -14 -4 Q -7 -9 0 -4 T 14 -4 M -14 3 Q -7 -2 0 3 T 14 3 M -14 10 Q -7 5 0 10 T 14 10" fill="none" stroke="#4FC3F7" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <text x="130" y="32" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="end" direction="rtl">البحر</text>
+            <text x="130" y="54" font-size="12" font-weight="normal" fill="#ffffff" opacity="0.9" text-anchor="end" direction="rtl">سطح الماء</text>
+        </g>
+        <g transform="translate(335, 362)">
+            <rect width="150" height="76" rx="14" fill="url(#gradVapor)" filter="url(#shadow)" />
+            <g transform="translate(35, 38)">
+                <path d="M -8 13 Q -13 5 -8 -3 T -8 -13 M 0 13 Q -5 5 0 -3 T 0 -13 M 8 13 Q 3 5 8 -3 T 8 -13" fill="none" stroke="#A7FFEB" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <text x="130" y="32" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="end" direction="rtl">البخار</text>
+            <text x="130" y="54" font-size="12" font-weight="normal" fill="#ffffff" opacity="0.9" text-anchor="end" direction="rtl">يرتفع للأعلى</text>
+        </g>
+        <g transform="translate(565, 592)">
+            <rect width="150" height="76" rx="14" fill="url(#gradAir)" filter="url(#shadow)" />
+            <g transform="translate(35, 38)">
+                <path d="M -13 -6 L 9 -6 A 4.5 4.5 0 0 0 9 -15 L 5 -15 M -17 3 L 13 3 A 4.5 4.5 0 0 1 13 12 L 7 12 M -9 12 L -2 12 A 3.5 3.5 0 0 0 -2 5 L -7 5" fill="none" stroke="#D0E1F9" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <text x="130" y="32" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="end" direction="rtl">الهواء</text>
+            <text x="130" y="54" font-size="12" font-weight="normal" fill="#ffffff" opacity="0.9" text-anchor="end" direction="rtl">يحمل البخار</text>
+        </g>
+    </g>
+    <g transform="translate(640, 400)">
+        <circle cx="0" cy="0" r="88" fill="none" stroke="#0277BD" stroke-width="8" opacity="0.06" />
+        <circle cx="0" cy="0" r="78" fill="none" stroke="#0277BD" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 4" />
+        <circle cx="0" cy="0" r="68" fill="url(#gradCenter)" filter="url(#shadow)" stroke="#ffffff" stroke-width="4" />
+        <text x="0" y="8" font-family="Tajawal, Arial, sans-serif" font-size="26" font-weight="bold" fill="#0277BD" text-anchor="middle" direction="rtl">التبخر</text>
+    </g>
+</svg>
+</body>
+</html>

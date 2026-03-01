@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFE" />
+      <stop offset="100%" stop-color="#EEF2F7" />
+    </linearGradient>
+
+    <!-- Card Gradient -->
+    <linearGradient id="cardGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0277BD" />
+      <stop offset="100%" stop-color="#4FC3F7" />
+    </linearGradient>
+
+    <!-- Card Drop Shadow -->
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feOffset dx="0" dy="6" result="offsetBlur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Badge Glow Effect -->
+    <filter id="badgeGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 1 1 L 9 5 L 1 9 Z" fill="#66BB6A" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="url(#bgGrad)" />
+
+  <!-- Cinematic Background Ripples -->
+  <g opacity="0.04" stroke="#4FC3F7" stroke-width="2" fill="none">
+    <circle cx="640" cy="360" r="280" />
+    <circle cx="640" cy="360" r="420" />
+    <circle cx="640" cy="360" r="560" />
+  </g>
+
+  <!-- Title -->
+  <text x="640" y="90" font-family="Tajawal, sans-serif" font-size="28" font-weight="bold" fill="#0277BD" text-anchor="middle" direction="rtl">التجمّع — الماء يعود إلى مكانه</text>
+
+  <!-- Pipeline Connections (Quadratic Bezier Curves) -->
+  <g id="pipeline">
+    <!-- Path 1: Step 1 to Step 2 -->
+    <path d="M 1000 320 Q 950 320 950 360 T 900 400" fill="none" stroke="#66BB6A" stroke-width="8" stroke-opacity="0.2" />
+    <path d="M 1000 320 Q 950 320 950 360 T 900 400" fill="none" stroke="#66BB6A" stroke-width="3" marker-end="url(#arrow)" />
+    
+    <!-- Path 2: Step 2 to Step 3 -->
+    <path d="M 700 400 Q 650 400 650 360 T 600 320" fill="none" stroke="#66BB6A" stroke-width="8" stroke-opacity="0.2" />
+    <path d="M 700 400 Q 650 400 650 360 T 600 320" fill="none" stroke="#66BB6A" stroke-width="3" marker-end="url(#arrow)" />
+
+    <!-- Path 3: Step 3 to Step 4 -->
+    <path d="M 400 320 Q 350 320 350 360 T 300 400" fill="none" stroke="#66BB6A" stroke-width="8" stroke-opacity="0.2" />
+    <path d="M 400 320 Q 350 320 350 360 T 300 400" fill="none" stroke="#66BB6A" stroke-width="3" marker-end="url(#arrow)" />
+
+    <!-- Pipeline Start Joints -->
+    <circle cx="1000" cy="320" r="4" fill="#ffffff" stroke="#66BB6A" stroke-width="2" />
+    <circle cx="700" cy="400" r="4" fill="#ffffff" stroke="#66BB6A" stroke-width="2" />
+    <circle cx="400" cy="320" r="4" fill="#ffffff" stroke="#66BB6A" stroke-width="2" />
+  </g>
+
+  <!-- Cards -->
+  <g id="cards">
+    <!-- Step 1 Card -->
+    <rect x="1000" y="200" width="200" height="240" rx="15" fill="url(#cardGrad)" filter="url(#cardShadow)" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.3" />
+    <!-- Step 2 Card -->
+    <rect x="700" y="280" width="200" height="240" rx="15" fill="url(#cardGrad)" filter="url(#cardShadow)" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.3" />
+    <!-- Step 3 Card -->
+    <rect x="400" y="200" width="200" height="240" rx="15" fill="url(#cardGrad)" filter="url(#cardShadow)" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.3" />
+    <!-- Step 4 Card -->
+    <rect x="100" y="280" width="200" height="240" rx="15" fill="url(#cardGrad)" filter="url(#cardShadow)" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.3" />
+  </g>
+
+  <!-- Geometric Icons -->
+  <g id="icons">
+    <!-- Icon 1: Rain -->
+    <g transform="translate(1100, 260)">
+      <circle cx="0" cy="0" r="32" fill="#ffffff" fill-opacity="0.15" />
+      <rect x="-12" y="-10" width="4" height="12" rx="2" fill="#ffffff" />
+      <rect x="-2" y="-4" width="4" height="12" rx="2" fill="#ffffff" />
+      <rect x="8" y="-10" width="4" height="12" rx="2" fill="#ffffff" />
+    </g>
+
+    <!-- Icon 2: Streams -->
+    <g transform="translate(800, 340)">
+      <circle cx="0" cy="0" r="32" fill="#ffffff" fill-opacity="0.15" />
+      <path d="M -15 -5 Q -7 -10 0 -5 T 15 -5 M -15 5 Q -7 0 0 5 T 15 5" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+    </g>
+
+    <!-- Icon 3: Rivers -->
+    <g transform="translate(500, 260)">
+      <circle cx="0" cy="0" r="32" fill="#ffffff" fill-opacity="0.15" />
+      <path d="M -15 -10 Q 0 0 0 10 M 15 -10 Q 0 0 0 10" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+    </g>
+
+    <!-- Icon 4: Seas/Ocean -->
+    <g transform="translate(200, 340)">
+      <circle cx="0" cy="0" r="32" fill="#ffffff" fill-opacity="0.15" />
+      <path d="M -16 -4 Q -8 -10 0 -4 T 16 -4 M -10 4 L 10 4 M -4 10 L 4 10" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- Card Typography -->
+  <g id="typography" font-family="Tajawal, sans-serif" fill="#ffffff" text-anchor="middle" direction="rtl">
+    <!-- Step 1 Text -->
+    <text x="1100" y="340" font-size="18" font-weight="bold">المطر</text>
+    <text x="1100" y="370" font-size="13" opacity="0.9">يسقط على الأرض</text>
+
+    <!-- Step 2 Text -->
+    <text x="800" y="420" font-size="18" font-weight="bold">الجداول</text>
+    <text x="800" y="450" font-size="13" opacity="0.9">يجري في مسارات صغيرة</text>
+
+    <!-- Step 3 Text -->
+    <text x="500" y="340" font-size="18" font-weight="bold">الأنهار</text>
+    <text x="500" y="370" font-size="13" opacity="0.9">يتجمع في أنهار كبيرة</text>
+
+    <!-- Step 4 Text -->
+    <text x="200" y="420" font-size="18" font-weight="bold">البحار</text>
+    <text x="200" y="450" font-size="13" opacity="0.9">يعود إلى المحيط</text>
+  </g>
+
+  <!-- Floating Badges (Step Numbers) -->
+  <g id="badges">
+    <!-- Badge 1 -->
+    <circle cx="1100" cy="175" r="22" fill="#ffffff" filter="url(#badgeGlow)" />
+    <text x="1100" y="175" dy="0.35em" font-family="Tajawal, sans-serif" font-size="20" font-weight="bold" fill="#0277BD" text-anchor="middle">1</text>
+
+    <!-- Badge 2 -->
+    <circle cx="800" cy="255" r="22" fill="#ffffff" filter="url(#badgeGlow)" />
+    <text x="800" y="255" dy="0.35em" font-family="Tajawal, sans-serif" font-size="20" font-weight="bold" fill="#0277BD" text-anchor="middle">2</text>
+
+    <!-- Badge 3 -->
+    <circle cx="500" cy="175" r="22" fill="#ffffff" filter="url(#badgeGlow)" />
+    <text x="500" y="175" dy="0.35em" font-family="Tajawal, sans-serif" font-size="20" font-weight="bold" fill="#0277BD" text-anchor="middle">3</text>
+
+    <!-- Badge 4 -->
+    <circle cx="200" cy="255" r="22" fill="#ffffff" filter="url(#badgeGlow)" />
+    <text x="200" y="255" dy="0.35em" font-family="Tajawal, sans-serif" font-size="20" font-weight="bold" fill="#0277BD" text-anchor="middle">4</text>
+  </g>
+</svg>

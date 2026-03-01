@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Tajawal', Arial, sans-serif;
+    width: 1280px; height: 720px; overflow: hidden;
+    background: linear-gradient(180deg, #1a2744 0%, #243b6e 35%, #2e5494 55%, #4a7dbf 75%, #6fa3cf 90%, #8fb8d8 100%);
+    position: relative;
+  }
+
+  /* Cloud */
+  .cloud {
+    position: absolute;
+    top: 60px; left: 50%; transform: translateX(-50%);
+    width: 340px; height: 140px;
+  }
+  .cloud-body {
+    position: absolute;
+    bottom: 0; left: 30px; right: 30px; height: 80px;
+    background: #546e9e;
+    border-radius: 40px;
+  }
+  .cloud-puff {
+    position: absolute;
+    border-radius: 50%;
+    background: #4a6390;
+  }
+  .cloud-puff.p1 { width: 120px; height: 120px; bottom: 30px; right: 20px; }
+  .cloud-puff.p2 { width: 100px; height: 100px; bottom: 30px; left: 40px; }
+  .cloud-puff.p3 { width: 80px; height: 80px; bottom: 30px; left: 130px; background: #5574a6; }
+  .cloud-label {
+    position: absolute;
+    top: -35px; left: 50%; transform: translateX(-50%);
+    white-space: nowrap;
+    color: white; font-size: 18px; font-weight: 700;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 6px 16px;
+  }
+
+  /* Rain drops */
+  .rain-column {
+    position: absolute;
+    top: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
+  }
+  .raindrop {
+    width: 8px; height: 20px;
+    background: linear-gradient(to bottom, rgba(120,200,255,0.9), rgba(80,160,255,0.6));
+    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+    animation: fall 1.5s linear infinite;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-20px); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(280px); opacity: 0; }
+  }
+
+  /* Ground */
+  .ground {
+    position: absolute;
+    bottom: 120px; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, #2d6a4f, #1b4332);
+    border-top: 3px solid rgba(255,255,255,0.1);
+  }
+
+  /* River */
+  .river {
+    position: absolute;
+    bottom: 80px; left: 0; right: 0;
+    height: 40px;
+    background: linear-gradient(180deg, #1565c0 0%, #0d47a1 100%);
+    border-radius: 0;
+  }
+  .river-label {
+    color: white; font-size: 16px; font-weight: 700;
+    position: absolute;
+    bottom: 85px; right: 50%;
+    background: rgba(255,255,255,0.12);
+    padding: 4px 12px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  /* Info cards */
+  .info-card {
+    position: absolute;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 14px;
+    padding: 14px 20px;
+    color: white;
+  }
+  .info-card .title { font-size: 18px; font-weight: 700; }
+  .info-card .desc { font-size: 14px; opacity: 0.8; margin-top: 4px; }
+
+  /* Stat bar on right */
+  .stat-panel {
+    position: absolute;
+    right: 40px; top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 220px;
+  }
+  .stat-item {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .stat-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .stat-text .t { font-size: 16px; font-weight: 700; }
+  .stat-text .s { font-size: 13px; opacity: 0.7; }
+
+  /* Main title */
+  .main-title {
+    position: absolute;
+    top: 24px; right: 40px;
+    color: white;
+    font-size: 36px;
+    font-weight: 800;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+  .step-badge {
+    position: absolute;
+    top: 80px; right: 40px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: white;
+    font-size: 15px;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  /* Cycle arrow at bottom left */
+  .cycle-note {
+    position: absolute;
+    bottom: 28px; left: 40px;
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+  <div class="main-title">المشهد الرابع: هطول المطر</div>
+  <div class="step-badge">المرحلة ٤ من ٤</div>
+
+  <!-- Cloud -->
+  <div class="cloud">
+    <div class="cloud-label">السحابة المحملة بالماء</div>
+    <div class="cloud-puff p1"></div>
+    <div class="cloud-puff p2"></div>
+    <div class="cloud-puff p3"></div>
+    <div class="cloud-body"></div>
+  </div>
+
+  <!-- Rain columns -->
+  <div class="rain-column" style="left: 280px;">
+    <div class="raindrop" style="animation-delay:0s"></div>
+    <div class="raindrop" style="animation-delay:0.5s"></div>
+    <div class="raindrop" style="animation-delay:1s"></div>
+  </div>
+  <div class="rain-column" style="left: 400px;">
+    <div class="raindrop" style="animation-delay:0.2s"></div>
+    <div class="raindrop" style="animation-delay:0.7s"></div>
+    <div class="raindrop" style="animation-delay:1.2s"></div>
+  </div>
+  <div class="rain-column" style="left: 520px;">
+    <div class="raindrop" style="animation-delay:0.4s"></div>
+    <div class="raindrop" style="animation-delay:0.9s"></div>
+    <div class="raindrop" style="animation-delay:1.4s"></div>
+  </div>
+  <div class="rain-column" style="left: 640px;">
+    <div class="raindrop" style="animation-delay:0.1s"></div>
+    <div class="raindrop" style="animation-delay:0.6s"></div>
+    <div class="raindrop" style="animation-delay:1.1s"></div>
+  </div>
+  <div class="rain-column" style="left: 760px;">
+    <div class="raindrop" style="animation-delay:0.3s"></div>
+    <div class="raindrop" style="animation-delay:0.8s"></div>
+    <div class="raindrop" style="animation-delay:1.3s"></div>
+  </div>
+
+  <!-- Ground & River -->
+  <div class="ground"></div>
+  <div class="river"></div>
+  <div class="river-label">الأنهار والبحيرات</div>
+
+  <!-- Stat panel -->
+  <div class="stat-panel">
+    <div class="stat-item">
+      <div class="stat-icon">🌧️</div>
+      <div class="stat-text">
+        <div class="t">هطول المطر</div>
+        <div class="s">القطرات تصل الأرض</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">🌊</div>
+      <div class="stat-text">
+        <div class="t">الجريان السطحي</div>
+        <div class="s">الماء يتجمع في الأنهار</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">💧</div>
+      <div class="stat-text">
+        <div class="t">التسرب الأرضي</div>
+        <div class="s">جزء يتسرب للتربة</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">🔄</div>
+      <div class="stat-text">
+        <div class="t">الدورة تعود</div>
+        <div class="s">البخر يبدأ من جديد</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cycle-note">
+    🔄 تكتمل دورة الماء — يعود البخر للصعود مجدداً
+  </div>
+</body>
+</html>

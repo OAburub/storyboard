@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Tajawal', Arial, sans-serif;
+    direction: rtl;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    background: #0f1b2d;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+  }
+  .title span { color: #4fc3f7; }
+
+  .flow {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    width: 180px;
+  }
+
+  .icon-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+
+  .step:nth-child(1) .icon-box { background: linear-gradient(135deg, #1565c0, #1e88e5); }
+  .step:nth-child(3) .icon-box { background: linear-gradient(135deg, #6a1b9a, #ab47bc); }
+  .step:nth-child(5) .icon-box { background: linear-gradient(135deg, #00695c, #26a69a); }
+  .step:nth-child(7) .icon-box { background: linear-gradient(135deg, #e65100, #ff7043); }
+  .step:nth-child(9) .icon-box { background: linear-gradient(135deg, #558b2f, #8bc34a); }
+
+  .step-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: #e3f2fd;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .step-sub {
+    font-size: 12px;
+    font-weight: 400;
+    color: #78909c;
+    text-align: center;
+  }
+
+  .arrow {
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 44px;
+  }
+
+  .arrow svg { transform: rotate(180deg); }
+
+  .badge {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background: rgba(79, 195, 247, 0.15);
+    border: 1px solid rgba(79, 195, 247, 0.3);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: #4fc3f7;
+    font-weight: 500;
+  }
+
+  body { position: relative; }
+</style>
+</head>
+<body>
+  <div class="badge">مراحل التحول الرقمي</div>
+
+  <div class="title">رحلة <span>التحول الرقمي</span> في المنظمات</div>
+
+  <div class="flow">
+    <div class="step">
+      <div class="icon-box">🎯</div>
+      <div class="step-label">تحديد الرؤية</div>
+      <div class="step-sub">وضع الأهداف الاستراتيجية</div>
+    </div>
+
+    <div class="arrow">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="step">
+      <div class="icon-box">📊</div>
+      <div class="step-label">تقييم الوضع الراهن</div>
+      <div class="step-sub">تحليل الفجوات والإمكانيات</div>
+    </div>
+
+    <div class="arrow">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="step">
+      <div class="icon-box">🗺️</div>
+      <div class="step-label">بناء خارطة الطريق</div>
+      <div class="step-sub">تحديد الأولويات والمراحل</div>
+    </div>
+
+    <div class="arrow">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="step">
+      <div class="icon-box">⚡</div>
+      <div class="step-label">التنفيذ والتجريب</div>
+      <div class="step-sub">النماذج الأولية والتكرار</div>
+    </div>
+
+    <div class="arrow">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="step">
+      <div class="icon-box">🚀</div>
+      <div class="step-label">التوسع والانتشار</div>
+      <div class="step-sub">التطوير المستمر والقياس</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Tajawal', Arial, sans-serif;
+    direction: rtl;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #546E7A 0%, #78909C 30%, #B0BEC5 60%, #CFD8DC 100%);
+    color: #263238;
+    position: relative;
+  }
+
+  /* Scene title */
+  .scene-title {
+    text-align: center;
+    padding: 28px 0 8px;
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .scene-subtitle {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 20px;
+  }
+
+  /* Big cloud at top */
+  .big-cloud {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 100px;
+    background: linear-gradient(180deg, #B0BEC5, #90A4AE);
+    border-radius: 60px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  }
+  .big-cloud::before {
+    content: '';
+    position: absolute;
+    width: 180px; height: 180px;
+    background: linear-gradient(180deg, #B0BEC5, #90A4AE);
+    border-radius: 50%;
+    top: -90px; left: 120px;
+  }
+  .big-cloud::after {
+    content: '';
+    position: absolute;
+    width: 140px; height: 140px;
+    background: linear-gradient(180deg, #B0BEC5, #90A4AE);
+    border-radius: 50%;
+    top: -60px; left: 320px;
+  }
+
+  /* Three precipitation cards */
+  .cards-container {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 0 60px;
+  }
+  .precip-card {
+    background: white;
+    border-radius: 24px;
+    padding: 30px 24px 24px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    position: relative;
+  }
+  .precip-card .icon-area {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
+  .card-rain .icon-area { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+  .card-snow .icon-area { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); }
+  .card-hail .icon-area { background: linear-gradient(135deg, #E0F7FA, #B2EBF2); }
+
+  .precip-card h3 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .card-rain h3 { color: #0277BD; }
+  .card-snow h3 { color: #7B1FA2; }
+  .card-hail h3 { color: #00838F; }
+
+  .precip-card p {
+    font-size: 17px;
+    font-weight: 400;
+    color: #546E7A;
+    line-height: 1.6;
+  }
+
+  /* Badge */
+  .badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #FFD54F, #FFC107);
+    color: #5D4037;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 18px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    white-space: nowrap;
+  }
+
+  /* Falling elements between cloud and cards */
+  .falling {
+    position: absolute;
+    opacity: 0.6;
+  }
+  /* Rain drops */
+  .rain-drop {
+    width: 8px; height: 18px;
+    background: linear-gradient(180deg, #4FC3F7, #0288D1);
+    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+  }
+  .rd1 { top: 220px; right: 250px; }
+  .rd2 { top: 260px; right: 280px; }
+  .rd3 { top: 240px; right: 310px; }
+  .rd4 { top: 280px; right: 230px; }
+  /* Snow flakes */
+  .snow-flake {
+    width: 16px; height: 16px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255,255,255,0.8);
+  }
+  .sf1 { top: 230px; left: 50%; margin-left: -10px; }
+  .sf2 { top: 270px; left: 50%; margin-left: 20px; }
+  .sf3 { top: 250px; left: 50%; margin-left: -30px; }
+  /* Hail */
+  .hail-stone {
+    width: 14px; height: 14px;
+    background: linear-gradient(135deg, #E0F7FA, #80DEEA);
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.6);
+  }
+  .hs1 { top: 240px; left: 280px; }
+  .hs2 { top: 270px; left: 260px; }
+  .hs3 { top: 255px; left: 300px; }
+
+  /* Arrow from cloud to ground */
+  .arrow-hint {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 36px;
+    color: rgba(255,255,255,0.5);
+  }
+</style>
+</head>
+<body>
+  <div class="scene-title">الهطول — المطر يسقط من السحب</div>
+  <div class="scene-subtitle">عندما تصبح قطرات الماء ثقيلة جدًا... تسقط!</div>
+
+  <div class="big-cloud"></div>
+
+  <!-- Falling elements -->
+  <div class="falling rain-drop rd1"></div>
+  <div class="falling rain-drop rd2"></div>
+  <div class="falling rain-drop rd3"></div>
+  <div class="falling rain-drop rd4"></div>
+  <div class="falling snow-flake sf1"></div>
+  <div class="falling snow-flake sf2"></div>
+  <div class="falling snow-flake sf3"></div>
+  <div class="falling hail-stone hs1"></div>
+  <div class="falling hail-stone hs2"></div>
+  <div class="falling hail-stone hs3"></div>
+
+  <div class="cards-container">
+    <div class="precip-card card-rain">
+      <div class="badge">الأكثر شيوعًا</div>
+      <div class="icon-area">🌧️</div>
+      <h3>المطر</h3>
+      <p>قطرات ماء سائلة تسقط عندما يكون الجو دافئًا</p>
+    </div>
+    <div class="precip-card card-snow">
+      <div class="icon-area">❄️</div>
+      <h3>الثلج</h3>
+      <p>بلورات جليدية تتساقط عندما يكون الجو باردًا جدًا</p>
+    </div>
+    <div class="precip-card card-hail">
+      <div class="icon-area">🧊</div>
+      <h3>البَرَد</h3>
+      <p>كرات ثلجية صلبة تتكوّن داخل السحب العاصفية</p>
+    </div>
+  </div>
+</body>
+</html>
