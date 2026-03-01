@@ -176,7 +176,7 @@ Consistent spacing and sizing across all slides:
 
 1. **No bullet slides** as the default — use card layout minimum, visual patterns preferred
 2. **No centered paragraph text** — always right-aligned for RTL
-3. **No clip-art or stock photo placeholders** — use generated images or SVG visuals
+3. **No placeholder images** — use actual images sourced by output type priority (Photo/Illustration/Infographic/Screen)
 4. **No dense text slides** — if more than 6 lines of body text, split into 2 slides or use cards
 5. **No identical consecutive slides** — vary the visual pattern
 6. **No floating text without containers** — put text in cards, badges, or defined zones

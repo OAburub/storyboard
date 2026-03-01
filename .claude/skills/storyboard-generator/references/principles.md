@@ -8,41 +8,83 @@ The agent is an **art director**, not a template filler. Every visual choice ser
 
 ## The Visual Palette
 
-**Native PPTX shapes** — when the layout pattern itself IS the visual (stat cards, timelines, comparisons). The slide structure carries the meaning.
+**Native PPTX shapes** — when the layout pattern itself IS the visual (stat cards, timelines, comparisons). The slide structure carries the meaning. This is for PPTX slide design, not for images placed into slides.
 
-**When you need a generated image, you have 3 options:**
+**When you need an image** (placed into PPTX or DOCX), classify it into one of 4 output types, then follow the priority order for that type:
 
-| Option | When to Use | NOT For |
-|--------|-------------|---------|
-| **SVG concept visualization** (via Gemini, `use_svg=True`) | When a visual metaphor or architecture diagram makes an abstract concept tangible: pillars, shields, ecosystems, tech stacks, data flows | Text-heavy content (Arabic text in SVG has rendering limits) |
-| **AI-generated images** (`image_prompt`) | When a photorealistic or stylized illustration adds real-world meaning — a scenario scene, a textural background, a styled illustration | Diagrams, labeled layouts, or anything needing precise structure |
-| **HTML+CSS Screenshot** (`image_path`, via Playwright) | For ANY custom visual where you design the output: diagrams, infographics, process flows, activity illustrations, question visuals, video scenes (شاشة توضيحية), data visualizations, UI screens. Not restricted to software — use it whenever HTML gives you better control. Lazy-load `references/screenshot-gen.md` when needed. | Photorealistic images (use AI image instead) |
+### Output Type 1: Photo
 
-Any slide can **combine**: SVG concept + AI background image, HTML diagram + AI illustration, etc.
+Real-world photographs — people, objects, scenes, environments, textures.
+
+| Priority | Method | When |
+|----------|--------|------|
+| 1st | **Freepik stock search** | Always try first. Easier for the graphics team to find alternatives for stock photos than to regenerate AI images. |
+| 2nd | **AI raster image** (Gemini) | Only if no suitable stock photo exists. |
+
+### Output Type 2: Illustration
+
+Drawings — icons, characters, conceptual art, visual metaphors, decorative elements. Anything that is "drawn" rather than photographed.
+
+| Priority | Method | When |
+|----------|--------|------|
+| 1st | **Freepik stock search** | Try first for common illustration needs. |
+| 2nd | **Recraft vector** (MCP) | When stock doesn't match, or you need style consistency across many illustrations. Lazy-load `references/recraft-gen.md`. |
+| 3rd | **Native SVG** (Gemini) | For abstract concept metaphors — pillars, shields, ecosystems, tech stacks, data flows. Lazy-load `references/image-gen.md`. |
+
+### Output Type 3: Infographic
+
+Data visualizations, structured information layouts, process diagrams, comparison charts, concept maps — anything that organizes information visually.
+
+| Priority | Method | When |
+|----------|--------|------|
+| 1st | **Native SVG** (Gemini) | Best for structured visual layouts — flows, hierarchies, cycles, layered diagrams. |
+| 2nd | **HTML+CSS** (Playwright) | When you need richer text rendering, multi-column layouts, or precise Arabic text control. Lazy-load `references/screenshot-gen.md`. |
+
+Infographics may **contain illustrations** within them. If so, source the illustration using the Illustration priority order above, then embed it in the SVG or HTML.
+
+### Output Type 4: Screen
+
+UI mockups, شاشة توضيحية, activity previews, motion graphics scenes, software interfaces — any visual that represents "what the learner sees on a screen."
+
+| Priority | Method | When |
+|----------|--------|------|
+| Only | **HTML+CSS** (Playwright) | Always. HTML+CSS is the only method for screens. Lazy-load `references/screenshot-gen.md`. |
+
+Screens may **contain other output types** within them. A screen showing a photo uses Photo instructions to source the photo, then embeds it in the HTML. A screen with an illustration follows Illustration instructions, etc.
+
+**For projects with many screens**: consider building a reusable HTML template and a script to fill it, ensuring visual consistency across all screens in the project.
+
+### Combining Outputs
+
+Any image can combine output types. An infographic (SVG) containing illustrations (Freepik/Recraft). A screen (HTML+CSS) containing photos (Freepik/Gemini) and illustrations. Think in layers: the **outer container** determines the primary method, inner elements follow their own type's priority.
+
+### Judgment and Iteration
+
+These are priority orders, not rigid rules. Choose the method you see fit for each specific image. Judge your output honestly — if it doesn't match your art direction vision, try a different method or regenerate. The images are **directions for the graphics team**, who may use them directly, modify SVGs, find stock alternatives, or use them as visual guides.
+
+### File Tracking
+
+Always provide the file path or URL for every fetched/generated image. Point out relative locations to make it easy for the instructional designer and graphic designer to find them.
 
 ## SVG Philosophy
 
-SVG is NOT a last resort for "complex diagrams." It is a **primary visualization tool** for making concepts tangible:
-- "5 pillars of X" → Building with labeled pillars
-- "Security layers" → Concentric shields
-- "Innovation ecosystem" → Connected growing elements
-- "Technology stack" → Stacked layers
-- "Data pipeline" → Flow through transformation stages
+SVG is NOT a last resort for "complex diagrams." It is a **primary visualization tool** for:
+- **Infographics** — structured information, process flows, hierarchies, cycles, comparisons
+- **Concept metaphors** — "5 pillars" as pillars, "security layers" as shields, "data pipeline" as flow stages
 
-**Ask**: "Would seeing this concept as a picture help the learner understand faster?" If yes → SVG (or HTML if you need richer layout/text).
-
-**Limitation**: Keep Arabic labels short (1-3 words) inside SVG. Long Arabic text should be in native PPTX shapes alongside the SVG, or use HTML+CSS instead.
+**Limitation**: Keep Arabic labels short (1-3 words) inside SVG. Long Arabic text should be in native PPTX shapes alongside the SVG, or use HTML+CSS (Infographic type, 2nd priority) instead.
 
 ## HTML+CSS Philosophy
 
-HTML+CSS is NOT limited to software UI mockups. Use it whenever you want a designed visual with full layout control:
-- Precise multi-column layouts with Arabic text
-- Styled diagrams with real font rendering
-- Activity illustrations (what a drag-and-drop looks like)
-- Video scenes / شاشة توضيحية
-- Any visual where SVG's text limitations would be a problem
+HTML+CSS is an **organizational tool**, not a drawing tool. Use it to arrange and structure content — text, images, shapes, embedded SVGs — with precise layout control. Never use it to "draw" illustrations (use Illustration type methods for that).
 
-Inline SVG can still be embedded inside HTML when you need vector shapes within a richer layout.
+Use cases:
+- **Screens** (Output Type 4) — UI mockups, activity previews, motion graphics scenes, شاشة توضيحية
+- **Infographics** (Output Type 3, 2nd priority) — when SVG's text limitations are a problem
+- Precise multi-column layouts with Arabic text
+- Any visual needing embedded images sourced from other methods
+
+Inline SVG can be embedded inside HTML when you need vector shapes within a richer layout.
 
 ## Visual Composition Plan
 

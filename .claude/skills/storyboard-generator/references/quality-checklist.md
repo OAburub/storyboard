@@ -8,10 +8,12 @@ For design principles, see `references/principles.md` (single source of truth).
 
 - [ ] Visual Composition Plan was created (slide-by-slide with patterns, SVG concepts, image prompts)
 - [ ] Plan was presented to and approved by the user BEFORE building
+- [ ] Each image classified by output type (Photo/Illustration/Infographic/Screen) with correct priority method
+- [ ] Photos: Freepik stock searched first, AI raster only if no match
+- [ ] Illustrations: Freepik stock searched first, then Recraft, then SVG
 - [ ] SVG concept descriptions are specific metaphors, not generic ("pipeline with chambers" not just "process flow")
-- [ ] AI image prompts are concept-specific, not generic stock-photo descriptions
 - [ ] Image density target met: 8-12 images per lecture
-- [ ] SVG visualization target: 4-8 per lecture where concepts benefit from visual explanation
+- [ ] All fetched/generated image paths documented for the graphics team
 
 ## Visual Quality
 

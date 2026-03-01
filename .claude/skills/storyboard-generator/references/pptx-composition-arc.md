@@ -39,18 +39,20 @@ For EACH slide, fill in this table:
 
 For EACH content slide, ask these questions in order:
 
-**Q1: "Would a concept visualization make this idea tangible?"**
-- Yes → Plan an SVG concept visualization (`use_svg=True`)
-- Use SVG whenever a visual metaphor makes the concept easier to understand — not just for complex diagrams
+**Q1: "What output type does this slide's image need?"**
+- Classify: **Photo** / **Illustration** / **Infographic** / **Screen** / **None (native PPTX pattern)**
 
-**Q2: "Would a real-world illustration add context?"**
-- Yes → Plan an AI image (`image_prompt`)
-- Prompts must be specific, not generic stock photos
+**Q2: "Follow the priority order for that type"**
+- Photo → Freepik stock first, AI raster (Gemini) second
+- Illustration → Freepik stock first, Recraft second, SVG (Gemini) third
+- Infographic → SVG (Gemini) first, HTML+CSS second
+- Screen → HTML+CSS only
+- None → Native PPTX patterns (stat cards, timelines, comparisons carry their own visual weight)
 
-**Q3: "Is the layout pattern itself sufficient?"**
-- Yes → Native PPTX only — stat cards, timelines, comparisons carry their own visual weight
+**Q3: "Can this slide combine multiple image types?"**
+- Yes — an infographic (SVG) can contain illustrations (Freepik/Recraft). A screen (HTML) can contain photos (Freepik/Gemini). Think in layers.
 
-A slide CAN have both SVG + AI Image when the concept benefits from both.
+Judge your output honestly — if it doesn't match your vision, try a different method or regenerate.
 
 ### Step 4: SVG Concept Descriptions
 

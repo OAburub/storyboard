@@ -17,7 +17,7 @@ User provides raw content (PDF, DOCX, PPTX, images)
 |-----------|----------|---------|
 | Unified Skill | `.claude/skills/storyboard-generator/` | All instructions, engine, references, assets |
 | Engine Scripts | `.claude/skills/storyboard-generator/scripts/` | 10 Python modules (9,491 lines) |
-| References | `.claude/skills/storyboard-generator/references/` | 13 reference docs (3,200+ lines) |
+| References | `.claude/skills/storyboard-generator/references/` | 14 reference docs (3,200+ lines) |
 | Assets | `.claude/skills/storyboard-generator/assets/pptx_assets/` | Decorative slide elements (17 PNGs) |
 | Coordinator | `.claude/commands/storyboard.md` | `/storyboard` entry point |
 | Project Configs | `projects/[code]/config.json` | Per-project metadata and branding |
@@ -50,7 +50,7 @@ scripts/
 - Portable imports: `_paths.py` auto-detects project root via git (works on any machine)
 - For PPTX: agent acts as **art director** with a visual palette (see `references/principles.md`):
   - **Native PPTX shapes** — when the layout pattern IS the visual (stat cards, timelines)
-  - When a generated image is needed, **3 options**: SVG via Gemini (abstract concepts/metaphors) · AI images (photorealistic/stylized illustrations) · HTML+CSS Screenshot (any custom visual — diagrams, infographics, activity illustrations, video scenes, UI screens, etc.; lazy-load `references/screenshot-gen.md`)
+  - When an image is needed, classify into **4 output types**: Photo (Freepik stock → AI raster) · Illustration (Freepik stock → Recraft → SVG) · Infographic (SVG → HTML+CSS) · Screen (HTML+CSS only). See `references/principles.md` → "The Visual Palette"
 - Every PPTX slide has **Storyline blueprints** in speaker notes (layers, states, triggers, variables)
 
 ## Non-Negotiable Rules
@@ -62,7 +62,7 @@ scripts/
 5. **USER DECIDES** — AI suggests (activity types, content distribution), user approves before proceeding.
 6. **VISUAL GRAMMAR** — For PPTX: never default to bullets. Choose the best visual pattern per concept.
 7. **STORYLINE-READY** — Every PPTX slide must have named shapes and interaction blueprints in notes.
-8. **LEARNER-FIRST VISUALS** — Choose whatever visual tool (native, SVG, AI image, or combo) best helps the learner understand. Plan visuals BEFORE building.
+8. **LEARNER-FIRST VISUALS** — Classify each image need (Photo/Illustration/Infographic/Screen), follow priority order, judge output, iterate. Plan visuals BEFORE building.
 
 ## Workflow (Every Unit)
 
@@ -125,7 +125,7 @@ Phase 3: Individual Storyboards (one at a time)
 | Interactions | quiz, drag_drop, click_reveal, slider, dropdown, scenario | 6 |
 | Depth | depth_wash, depth_accent, decorative_corner, progress_dots, header_bar, section_banner | 6 |
 
-## Skill Reference Files (13 docs)
+## Skill Reference Files (14 docs)
 
 Navigate by what you're doing:
 
@@ -142,6 +142,7 @@ Navigate by what you're doing:
 | **Building** | `docx-builders.md` | DOCX builder API (8 builders) |
 | **Building** | `storyline-blueprint.md` | Storyline 360 interaction specs |
 | **Building** | `image-gen.md` | AI image generation API + density guidelines |
+| **Building** | `recraft-gen.md` | Recraft MCP illustration generation — vector/raster with style consistency |
 | **Reviewing** | `quality-checklist.md` | Pre-delivery quality gates |
 | **Debugging** | `common-issues.md` | Known problems, fixes, anti-patterns |
 | **Debugging** | `rtl-arabic-patterns.md` | RTL-specific issues and workarounds |

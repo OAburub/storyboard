@@ -1,8 +1,43 @@
 # Image Generation API Reference
 
-## Method 3: HTML+CSS Screenshot (Any Custom Visual)
+Images are **directions for the graphics team** — they may use them directly, modify SVGs, find stock alternatives, or use them as visual guides. Always provide file paths/URLs for every image.
 
-For any custom visual where you design the output — diagrams, infographics, process flows, activity illustrations, video scenes (شاشة توضيحية), question visuals, UI screens, and anything else. NOT restricted to software UI. **Lazy-load `references/screenshot-gen.md`** for the full workflow. In brief:
+## Output Type Decision Framework
+
+Before generating any image, classify it into one of 4 output types (see `references/principles.md` → "The Visual Palette" for the full priority matrix):
+
+| Output Type | Priority Order |
+|-------------|---------------|
+| **Photo** (real-world scenes, people, objects) | Freepik stock → AI raster (Gemini) |
+| **Illustration** (drawings, icons, visual metaphors) | Freepik stock → Recraft vector (MCP) → Native SVG (Gemini) |
+| **Infographic** (data viz, process diagrams, concept maps) | Native SVG (Gemini) → HTML+CSS (Playwright) |
+| **Screen** (UI mockups, شاشة توضيحية, activity previews) | HTML+CSS only |
+
+---
+
+## Tool 1: Freepik Stock Search (Photos & Illustrations — 1st priority)
+
+Search and download stock images via MCP. Use for Photos and Illustrations before trying generative methods. Lazy-load via `freepik:freepik-search` skill.
+
+Quick workflow:
+1. Search with `mcp__plugin_freepik_freepik__freepik_search` (English keywords, type: photo/vector)
+2. Download with `mcp__plugin_freepik_freepik__freepik_download`
+3. Pass the returned file path as `image_path` to any builder method
+
+**Always record the Freepik resource URL/ID** so the graphics team can find alternatives.
+
+## Tool 2: Recraft via MCP (Illustrations — 2nd priority)
+
+For vector/raster illustrations with style consistency. Use when Freepik stock doesn't match. **Lazy-load `references/recraft-gen.md`** for the full workflow, style mapping, size guide, and all 9 MCP tools.
+
+Quick usage:
+1. Call `generate_image` with prompt, style, and size
+2. Pass the returned file path as `image_path` to any builder method
+3. Cost: ~$0.04/raster, ~$0.08/vector — check balance with `get_user`
+
+## Tool 3: HTML+CSS Screenshot (Screens & Infographics)
+
+For Screens (only method) and Infographics (2nd priority). HTML+CSS is an **organizational** tool — it arranges text, images, and embedded SVGs with precise layout control. It is NOT a drawing tool. **Lazy-load `references/screenshot-gen.md`** for the full workflow.
 
 ```bash
 # 1. Write HTML to: output/{PROJECT}/U{XX}/screenshots/{name}.html
@@ -13,11 +48,13 @@ python3 .claude/skills/storyboard-generator/scripts/screenshot_gen.py \
 # 3. Pass PNG path as image_path= to any builder method
 ```
 
-Caching built-in: if PNG exists, script prints `CACHED: path` and skips. Read `references/screenshot-gen.md` only when you need the HTML template or design rules.
+Caching built-in: if PNG exists, script prints `CACHED: path` and skips.
 
----
+**For projects with many screens**: build a reusable HTML template + fill script for visual consistency.
 
-## Methods 1–3: AI Image Generation via Nano Banana Pro (Gemini 3 Pro)
+## Tool 4: AI Raster Image Generation via Gemini (Photos — 2nd priority)
+
+Used for Photos when Freepik stock doesn't match, and for SVG concept visualizations (Illustrations 3rd priority, Infographics 1st priority).
 
 ## Main Function: `generate_storyboard_image()`
 

@@ -1,21 +1,39 @@
 # HTML Screenshot — Reference
 
-**When to load this file**: When generating any custom visual using HTML+CSS — diagrams, infographics, activity illustrations, video scenes, question visuals, UI screens, or anything requiring precise design control.
+**When to load this file**: When building a **Screen** (Output Type 4) or an **Infographic** (Output Type 3, 2nd priority) using HTML+CSS via Playwright.
 
 ---
 
 ## When to Use
 
-Use HTML+CSS Screenshot for any visual where you want to control the output precisely:
-- **Diagrams and concept visuals** — process flows, concept maps, hierarchies, comparisons
-- **Infographics** — data visualizations, stats panels, icon+text layouts
-- **Activity illustrations** — show what a drag-and-drop, matching, or quiz activity looks like
-- **Video scenes / شاشة توضيحية** — what the learner sees on screen at each moment in a motion video
-- **Question visuals** — scenario setups, visual multiple-choice, illustrated prompts
-- **UI screens** — when the content happens to involve software (forms, dashboards, portals)
-- **Anything where precise layout, color, and Arabic text control matters**
+HTML+CSS is an **organizational tool**, not a drawing tool. It arranges text, images, embedded SVGs, and other elements with precise layout control. Use it for:
 
-Use **AI-generated images** instead only when you want a photorealistic or stylized illustration (a scene photo, a textural background).
+- **Screens** (Output Type 4 — the ONLY method):
+  - **UI mockups** — software interfaces, dashboards, forms, portals
+  - **Activity previews** — what a drag-and-drop, matching, or quiz activity looks like
+  - **Video scenes / شاشة توضيحية** — what the learner sees on screen at each moment in a motion video
+  - **Motion graphics scenes** — scene compositions for video storyboards
+- **Infographics** (Output Type 3 — 2nd priority, when SVG text limitations are a problem):
+  - Data visualizations with rich Arabic text
+  - Multi-column structured layouts
+  - Stats panels, icon+text layouts
+
+### What goes INSIDE the HTML
+
+Screens and infographics often contain images. Source those images using their output type's priority order:
+- Need a **photo** inside the screen? → Freepik stock first, then AI raster (Gemini)
+- Need an **illustration** inside? → Freepik stock first, then Recraft, then SVG
+- Need a **diagram** inside? → Embed inline SVG
+
+See `references/principles.md` → "The Visual Palette" for the full decision framework.
+
+### Template Strategy for Many Screens
+
+When a project requires many screens (e.g., a motion video with 8+ scenes, or an activity with many steps), build a **reusable HTML template** and a script to fill it with per-screen data. This ensures visual consistency across all screens.
+
+### Embedding External Images
+
+Use **Freepik stock images** (via MCP) when the HTML visual needs a real photo or illustration. See [Using Freepik Stock Images](#using-freepik-stock-images) below.
 
 ## 3-Step Workflow
 
@@ -105,7 +123,7 @@ builder.add_content_slide(..., image_path="output/NJR01/U02/screenshots/dashboar
 - Use realistic Arabic placeholder text — not "lorem ipsum"
 - Brand colors: check `projects/{code}/config.json` → `branding` section
 - Keep it realistic: show actual UI state (logged in, data visible, not empty states unless that's the point)
-- No decorative images inside the mockup HTML (slows render, increases wait_ms)
+- No remote/hotlinked images inside the mockup HTML (network fetch slows render) — download first via Freepik MCP, then reference as a local `file://` path
 
 ---
 
@@ -113,6 +131,66 @@ builder.add_content_slide(..., image_path="output/NJR01/U02/screenshots/dashboar
 
 If `{name}.png` already exists, the script prints `CACHED: path` and exits 0.
 **Do not regenerate** — reuse the cached path. Same mockup can be referenced multiple times across slides.
+
+---
+
+## Using Freepik Stock Images
+
+When the HTML visual would benefit from a real photo or illustration (a person at a computer, a meeting scene, a background texture, an icon set), use Freepik MCP to search and download before building the HTML.
+
+### When to use Freepik vs other tools
+
+| Need | Tool |
+|------|------|
+| Real photo or illustration (person, scene, object) | **Freepik MCP** |
+| Abstract concept / metaphor / custom diagram | **SVG via Gemini** |
+| Photorealistic custom scene (no stock match) | **AI image gen** |
+| Pure layout, data, text, shapes | **Native HTML+CSS** |
+
+### Workflow
+
+**Step 1 — Search**
+
+Use the `mcp__plugin_freepik_freepik__freepik_search` tool with relevant English keywords:
+
+```
+keywords: "team meeting arabic office"
+type: photo or vector
+orientation: horizontal (for wide slides) / vertical (for portrait panels)
+```
+
+Scan the results. Pick the ID whose title/type best matches the visual need.
+
+**Step 2 — Download**
+
+Use `mcp__plugin_freepik_freepik__freepik_download` with the chosen resource ID. The tool downloads the file to the configured Freepik download directory and returns the local file path.
+
+**Step 3 — Embed in HTML**
+
+Reference the downloaded file using an absolute `file://` path in the `<img>` tag or as a CSS `background-image`. Local files render instantly — no extra wait_ms needed.
+
+```html
+<!-- img tag -->
+<img src="file:///C:/Users/name/Downloads/freepik/image.jpg"
+     style="width:100%; height:100%; object-fit:cover;">
+
+<!-- CSS background -->
+<div style="background-image: url('file:///C:/Users/name/Downloads/freepik/image.jpg');
+            background-size: cover; background-position: center;">
+</div>
+```
+
+**Important path formatting on Windows**: use forward slashes and three slashes after `file:` — e.g. `file:///C:/path/to/image.jpg`.
+
+### Design tips
+
+- Overlay a semi-transparent color layer on top of photos so Arabic text remains legible:
+  ```css
+  background: linear-gradient(rgba(10,20,60,0.55), rgba(10,20,60,0.55)),
+              url('file:///...') center/cover;
+  ```
+- Keep the image as a background or decorative element — the HTML layout still carries the content
+- If the downloaded file is an SVG or vector format, it can be used directly in `<img src>` or inlined
 
 ---
 

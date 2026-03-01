@@ -11,14 +11,20 @@ Transforms raw course content into production-ready educational storyboard docum
 
 You are not a template filler. You are an **art director** who makes creative design decisions for every slide. For EACH slide, ask: **"What visual would make this concept click fastest for the learner?"**
 
-**Native PPTX shapes** — when the layout pattern itself IS the visual (stat cards, timelines, comparisons, icon grids).
+**Native PPTX shapes** — when the layout pattern itself IS the visual (stat cards, timelines, comparisons, icon grids). This is for PPTX slide design, not for images placed into slides.
 
-**When you need a generated image, you have 3 options:**
-- **SVG concept visualization** (via Gemini) — abstract concepts and metaphors made tangible: "5 pillars" as pillars, "security layers" as shields, architecture diagrams. PRIMARY visualization tool.
-- **AI-generated images** (via Nano Banana / Gemini) — photorealistic or stylized illustrations adding real-world meaning (scenario photos, textural backgrounds, styled scenes).
-- **HTML+CSS Screenshot** (via Playwright) — any custom visual where you design the output: diagrams, infographics, process flows, activity illustrations, question visuals, video scenes (شاشة توضيحية), UI screens, and anything else. NOT restricted to software UI. Write HTML → run screenshot script → pass as `image_path`. Lazy-load `references/screenshot-gen.md` when needed.
+**When you need an image** (placed into PPTX or DOCX), classify it into one of 4 output types, then follow the priority order:
 
-Any slide can **combine tools**: an SVG concept diagram WITH an AI image. Think about **composition, whitespace, focal points, and pacing** — not just "which pattern to use."
+| Output Type | Priority Order |
+|-------------|---------------|
+| **Photo** (real-world scenes, people, objects) | Freepik stock → AI raster (Gemini) |
+| **Illustration** (drawings, icons, visual metaphors) | Freepik stock → Recraft vector (MCP) → Native SVG (Gemini) |
+| **Infographic** (data viz, process diagrams, concept maps) | Native SVG (Gemini) → HTML+CSS (Playwright) |
+| **Screen** (UI mockups, شاشة توضيحية, activity previews, motion scenes) | HTML+CSS only |
+
+Images are **directions for the graphics team** — they may use them directly, modify SVGs, find stock alternatives, or use them as visual guides. Always provide file paths/URLs. HTML+CSS is an organizational tool, not a drawing tool. Screens and infographics can contain other output types (photos, illustrations) sourced by their own priority order.
+
+Think about **composition, whitespace, focal points, and pacing** — not just "which pattern to use."
 
 **Non-Negotiable Rules** → See CLAUDE.md
 
@@ -103,9 +109,16 @@ from pptx_engine import LectureBuilder  # Interactive & PDF lectures
 
 ## Image Generation
 
-All builders support AI image generation via `image_prompt` parameter. Priority: `image_path` > `image_prompt`. See `references/image-gen.md` for full API.
+Classify each image need into an output type, then follow its priority order. See `references/image-gen.md` for the full decision framework and API details.
 
-**HTML+CSS Screenshot** (for any custom visual — diagrams, infographics, activity illustrations, video scenes, UI screens, etc.): Write HTML → run `scripts/screenshot_gen.py` → pass PNG as `image_path`. Full details: lazy-load `references/screenshot-gen.md` only when needed.
+| Output Type | Priority Order | Reference |
+|-------------|---------------|-----------|
+| **Photo** | Freepik stock → AI raster (Gemini) | `image-gen.md` |
+| **Illustration** | Freepik stock → Recraft (MCP) → SVG (Gemini) | `image-gen.md`, `recraft-gen.md` |
+| **Infographic** | SVG (Gemini) → HTML+CSS (Playwright) | `image-gen.md`, `screenshot-gen.md` |
+| **Screen** | HTML+CSS only | `screenshot-gen.md` |
+
+All builders support `image_path` and `image_prompt` parameters. Priority: `image_path` > `image_prompt`. Always provide file paths/URLs for the graphics team.
 
 ## Navigation — Read What You Need
 
@@ -133,6 +146,7 @@ All builders support AI image generation via `image_prompt` parameter. Priority:
 ### When building slides:
 → `references/pptx-builder.md` — full API for all 28 slide methods
 → `references/image-gen.md` — image generation API + density guidelines
+→ `references/recraft-gen.md` — Recraft MCP illustration generation (vector/raster with style consistency) — lazy-load only when using Recraft
 → `references/docx-builders.md` — DOCX builder API (8 builders)
 
 ### When generating tests/quizzes:
